@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luxury Travel - Hành trình đẳng cấp</title>
 
-  <meta name="description" content="Luxury Travel - Thiết kế hành trình riêng tư, sang trọng, chuẩn 5 sao quốc tế cho khách hàng và gia đình." />
+  <!-- SEO cơ bản -->
+  <meta name="description" content="Luxury Travel - Thiết kế hành trình riêng tư, sang trọng, chuẩn 5 sao quốc tế cho doanh nhân và gia đình." />
+  <meta name="keywords" content="luxury travel, du lịch cao cấp, private jet, luxury cruise, retreat, resort 5 sao" />
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,8 +24,6 @@
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
@@ -198,339 +198,658 @@
         display: flex;
       }
     }
-<body>
 
-<!-- ================== HEADER ================== -->
-<header class="lux-header" id="luxHeader">
-  <div class="lux-header-inner">
-    <div class="lux-logo">Luxury Travel</div>
+    /* ================== HERO ================== */
 
-    <!-- Desktop Nav -->
-    <nav class="lux-nav" id="luxNav">
-      <a href="#hero">Trang chủ</a>
-      <a href="#destinations">Điểm đến</a>
-      <a href="#about">Giới thiệu</a>
-      <a href="#services">Dịch vụ</a>
-      <a href="#gallery">Thư viện</a>
-      <a href="#booking">Đăng ký</a>
-      <a href="#contact">Liên hệ</a>
-    </nav>
+    .hero {
+      height: 100vh;
+      min-height: 560px;
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.7)
+        ),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      color: var(--lux-white);
+      position: relative;
+    }
 
-    <!-- Mobile Hamburger -->
-    <div class="lux-menu-toggle" id="luxMenuToggle">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</header>
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
 
+    .hero-text {
+      max-width: 520px;
+    }
 
-<!-- ================== HERO ================== -->
-<section class="hero" id="hero"
-style="
-  height: 100vh;
-  background: url('https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-">
-  <div style="
-    background: rgba(0,0,0,0.45);
-    padding: 35px 40px;
-    border-radius: 14px;
-    max-width: 580px;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(4px);
-  ">
-    <h1 style="font-size: 42px; margin-bottom: 14px; font-family: 'Playfair Display', serif;">Hành trình đẳng cấp</h1>
-    <p style="font-size: 17px; opacity: 0.95;">
-      Thiết kế trải nghiệm du lịch riêng tư – sang trọng – chuẩn 5 sao quốc tế.
-    </p>
-    <br>
-    <a href="#destinations" class="btn-get-started">Khám phá ngay</a>
-  </div>
-</section>
+    .hero-text h1 {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
 
+    .hero-text p {
+      font-size: 16px;
+      color: #eee;
+    }
 
-<!-- ================== DESTINATIONS ================== -->
-<section id="destinations">
-  <div class="container">
-    <div class="section-title">
-      <span>SIGNATURE DESTINATIONS</span>
-      <h2>Điểm đến sang trọng</h2>
-      <p>Những hành trình được khách hàng cao cấp yêu thích.</p>
-    </div>
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.45);
+      font-size: 12px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-    <div class="dest-grid" style="
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-main,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 11px 26px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 600;
+      border: none;
+    }
+
+    .btn-main {
+      background: var(--lux-gold);
+      color: var(--lux-dark);
+    }
+
+    .btn-main:hover {
+      background: #b48e4f;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: var(--lux-white);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-card {
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 18px;
+      padding: 20px 22px;
+      max-width: 340px;
+    }
+
+    .hero-card h3 {
+      color: var(--lux-gold-soft);
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .hero-bottom {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #f5f5f5;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .hero-arrow {
+      margin-top: 6px;
+      font-size: 18px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ================== DESTINATIONS ================== */
+
+    .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-    ">
-
-      <!-- CARD 1 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top">
-        <div class="card-body">
-          <h5>Maldives Private Villa</h5>
-          <p>Kỳ nghỉ villa riêng tư giữa biển – chuẩn 6 sao quốc tế.</p>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/133081/pexels-photo-133081.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top">
-        <div class="card-body">
-          <h5>Kyoto Ancient Luxury</h5>
-          <p>Văn hoá Nhật Bản tinh tế: ryokan riêng, onsen & kaiseki.</p>
-        </div>
-      </div>
-
-      <!-- CARD 3 — đã xoá ảnh lỗi theo yêu cầu -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top">
-        <div class="card-body">
-          <h5>Santorini Signature Sunset</h5>
-          <p>Hoàng hôn đẹp nhất thế giới, rượu vang Hy Lạp & private dinner.</p>
-        </div>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="card">
-        <img src="https://images.pexels.com/photos/240040/pexels-photo-240040.jpeg?auto=compress&cs=tinysrgb&w=1600" class="card-img-top">
-        <div class="card-body">
-          <h5>Sa Pa – Private Retreat</h5>
-          <p>Không gian retreat riêng tư giữa núi rừng Tây Bắc.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ================== ABOUT ================== -->
-<section id="about" style="background:#f1f1f5;">
-  <div class="container">
-    <div class="section-title">
-      <span>ABOUT US</span>
-      <h2>Giới thiệu</h2>
-    </div>
-
-    <p style="max-width: 800px; margin:auto; text-align:center; font-size:17px;">
-      Chúng tôi mang đến những hành trình riêng tư – đẳng cấp – tinh tế cho khách hàng
-      muốn trải nghiệm du lịch theo phong cách thượng lưu.
-      Mỗi hành trình được thiết kế theo yêu cầu, đảm bảo sang trọng, riêng tư và dịch vụ 5 sao.
-    </p>
-  </div>
-</section>
-
-
-<!-- ================== SERVICES ================== -->
-<section id="services">
-  <div class="container">
-    <div class="section-title">
-      <span>OUR SERVICES</span>
-      <h2>Dịch vụ nổi bật</h2>
-    </div>
-
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:25px;">
-
-      <div class="service-card">
-        <h3>Private Trip Design</h3>
-        <p>Thiết kế lịch trình chuẩn 5 sao theo đúng phong cách và sở thích khách hàng.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Luxury Concierge</h3>
-        <p>Hỗ trợ 24/7: đặt bàn, spa, lounge, trực thăng – phục vụ mọi yêu cầu.</p>
-      </div>
-
-      <div class="service-card">
-        <h3>Premium Family Retreat</h3>
-        <p>Hành trình nghỉ dưỡng cho gia đình: an toàn, riêng tư và đẳng cấp.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ================== GALLERY ================== -->
-<section id="gallery" style="background:#f1f1f5;">
-  <div class="container">
-    <div class="section-title">
-      <span>GALLERY</span>
-      <h2>Khoảnh khắc trên hành trình</h2>
-    </div>
-
-    <div style="display:flex; overflow-x:auto; gap:20px; padding-bottom:10px;">
-      <img src="https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?auto=compress&cs=tinysrgb&w=1600" style="height:220px; border-radius:12px;">
-      <img src="https://images.pexels.com/photos/327482/pexels-photo-327482.jpeg?auto=compress&cs=tinysrgb&w=1600" style="height:220px; border-radius:12px;">
-      <img src="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=1600" style="height:220px; border-radius:12px;">
-      <img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1600" style="height:220px; border-radius:12px;">
-    </div>
-  </div>
-</section>
-
-
-<!-- ================== BOOKING ================== -->
-<section id="booking">
-  <div class="container">
-    <div class="section-title">
-      <span>PRIVATE CONSULTATION</span>
-      <h2>Đăng ký tư vấn hành trình riêng</h2>
-      <p>Đội ngũ concierge sẽ liên hệ lại trong 10 phút làm việc.</p>
-    </div>
-
-    <form class="booking-form" style="
-      background:#fdf6e8;
-      padding:40px;
-      border-radius:18px;
-      box-shadow:0 4px 18px rgba(0,0,0,0.1);
-    ">
-      <div style="display:flex; gap:20px; flex-wrap:wrap;">
-        <input type="text" placeholder="Họ tên" style="flex:1; padding:12px; border-radius:8px; border:1px solid #ccc;">
-        <input type="text" placeholder="Số điện thoại" style="flex:1; padding:12px; border-radius:8px; border:1px solid #ccc;">
-        <input type="email" placeholder="Email (nếu có)" style="flex:1; padding:12px; border-radius:8px; border:1px solid #ccc;">
-        <select style="flex:1; padding:12px; border-radius:8px; border:1px solid #ccc;">
-          <option>Family Retreat</option>
-          <option>Private Villa</option>
-          <option>Luxury City Tour</option>
-          <option>Honeymoon Trip</option>
-        </select>
-      </div>
-
-      <textarea placeholder="Mong muốn của khách hàng…" style="margin-top:20px; width:100%; height:130px; padding:14px; border-radius:10px; border:1px solid #ccc;"></textarea>
-
-      <button class="btn-get-started" style="margin-top:20px;">Gửi yêu cầu</button>
-    </form>
-  </div>
-</section>
-<!-- ================== CONTACT ================== -->
-<section id="contact" style="padding:80px 0;">
-  <div class="container">
-    <div class="section-title">
-      <span>CONTACT</span>
-      <h2>Thông tin liên hệ</h2>
-    </div>
-
-    <div style="
-      background:white;
-      border-radius:20px;
-      padding:30px 35px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.08);
-      max-width:900px;
-      margin:auto;
-      display:flex;
-      flex-direction:column;
-      gap:28px;
-    ">
-
-      <!-- Address -->
-      <div style="display:flex; align-items:flex-start; gap:18px;">
-        <div style="
-          width:48px; height:48px;
-          border-radius:50%;
-          background:#eef2ff;
-          display:flex; align-items:center; justify-content:center;
-        ">
-          <span style="font-size:22px; color:#4c6ef5;">📍</span>
-        </div>
-        <div>
-          <h3 style="margin:0 0 4px;">Address</h3>
-          <p style="margin:0;">30 Trần Cao Vân, P. Xuân Hòa, Thành phố Hồ Chí Minh</p>
-        </div>
-      </div>
-
-      <!-- Phone -->
-      <div style="display:flex; align-items:flex-start; gap:18px;">
-        <div style="
-          width:48px; height:48px;
-          border-radius:50%;
-          background:#eaf7ff;
-          display:flex; align-items:center; justify-content:center;
-        ">
-          <span style="font-size:22px; color:#0c8599;">📞</span>
-        </div>
-        <div>
-          <h3 style="margin:0 0 4px;">Call Us</h3>
-          <p style="margin:0;">+84 988 013 072</p>
-        </div>
-      </div>
-
-      <!-- Email -->
-      <div style="display:flex; align-items:flex-start; gap:18px;">
-        <div style="
-          width:48px; height:48px;
-          border-radius:50%;
-          background:#fff4e6;
-          display:flex; align-items:center; justify-content:center;
-        ">
-          <span style="font-size:22px; color:#e67700;">✉️</span>
-        </div>
-        <div>
-          <h3 style="margin:0 0 4px;">Email Us</h3>
-          <p style="margin:0;">support@luxurytravel.com</p>
-        </div>
-      </div>
-
-      <!-- Google Map -->
-      <div style="margin-top:10px; border-radius:18px; overflow:hidden;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.224492932964!2d106.69051577504807!3d10.870014689283212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528e36b9c31f7%3A0xc3e14f20be0f0df2!2zVHJ1bmcgVMOibSDEkOG6r2MgZ2nhur9wIGtow6BuaCBj4buJLCB04bqhaSBI4buNYyBBbsOgbmggVGjhu40gLSBDw7RhIFjDsm5nIEzGsMahbmcgVuG7qW5n!5e0!3m2!1svi!2s!4v1709916019007!5m2!1svi!2s"
-          width="100%"
-          height="340"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-        ></iframe>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ================== FOOTER ================== -->
-<footer style="
-  background:#0f0f13;
-  padding:40px 0;
-  text-align:center;
-  color:#ddd;
-  margin-top:60px;
-">
-  <h3 style="color:#c5a46d; margin-bottom:10px;">Luxury Travel</h3>
-  <p style="max-width:600px; margin:auto; font-size:14px; color:#bbb;">
-    Hành trình sang trọng – riêng tư – tinh tế dành cho khách hàng muốn trải nghiệm đẳng cấp.
-  </p>
-  <p style="margin-top:18px; font-size:13px; color:#777;">
-    © 2025 Luxury Travel. All Rights Reserved.
-  </p>
-</footer>
-
-
-<!-- ================== JS ================== -->
-<script>
-  // Toggle mobile menu
-  const luxToggle = document.getElementById("luxMenuToggle");
-  const luxNav = document.getElementById("luxNav");
-
-  luxToggle.addEventListener("click", () => {
-    luxToggle.classList.toggle("active");
-    luxNav.classList.toggle("open");
-  });
-
-  // Header scroll effect
-  const luxHeader = document.getElementById("luxHeader");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 10) {
-      luxHeader.classList.add("scrolled");
-    } else {
-      luxHeader.classList.remove("scrolled");
+      gap: 26px;
     }
-  });
-</script>
 
+    .card {
+      background: var(--lux-white);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 16px 18px 18px;
+    }
+
+    .card-body h3 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .card-body p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* ================== ABOUT ================== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-tag {
+      color: #777;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .about-image {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-image img {
+      width: 100%;
+      display: block;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ================== SERVICES ================== */
+
+    .service-card {
+      background: var(--lux-white);
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-top: 3px solid var(--lux-gold);
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: var(--lux-gold);
+    }
+
+    /* ================== GALLERY ================== */
+
+    .gallery-strip {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .gallery-strip::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .gallery-strip::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 999px;
+    }
+
+    .gallery-item {
+      min-width: 230px;
+      height: 150px;
+      border-radius: 14px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ================== BOOKING ================== */
+
+    .booking-wrapper {
+      max-width: 720px;
+      margin: auto;
+      background: linear-gradient(135deg, #ffffff, #faf0dc);
+      padding: 28px 26px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.14);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 700px) {
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-field label {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      padding: 9px 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-color: var(--lux-gold);
+      box-shadow: 0 0 0 2px rgba(197, 164, 109, 0.2);
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .booking-footer {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .btn-book {
+      border-radius: 999px;
+      padding: 11px 26px;
+      border: none;
+      background: var(--lux-dark-soft);
+      color: var(--lux-gold-soft);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-book:hover {
+      background: #151723;
+    }
+
+    /* ================== FOOTER ================== */
+
+    .footer {
+      background: var(--lux-dark);
+      color: #ddd;
+      padding: 40px 0 24px;
+      text-align: center;
+    }
+
+    .footer h3 {
+      color: var(--lux-gold);
+      margin-bottom: 6px;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    /* ================== REVEAL ON SCROLL ================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="lux-header" id="luxHeader">
+    <div class="lux-header-inner">
+      <div class="lux-logo">Luxury Travel</div>
+
+      <nav class="lux-nav" id="luxNav">
+        <a href="#destinations">Điểm đến</a>
+        <a href="#services">Dịch vụ</a>
+        <a href="#about">Về chúng tôi</a>
+        <a href="#booking">Đặt hành trình</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+
+      <div class="lux-menu-toggle" id="luxToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <div class="hero-badge">
+          <span>Signature Journey</span>
+        </div>
+        <h1>Hành trình tinh tế – chuẩn giới hạn</h1>
+        <p>
+          Khách hàng chỉ cần chọn cảm hứng, còn lại để đội ngũ concierge thiết kế
+          lịch trình riêng tư, sang trọng, đúng nhịp sống của gia đình.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-main" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+            Đặt tư vấn 1:1
+          </button>
+          <button class="btn-ghost" onclick="document.getElementById('destinations').scrollIntoView({behavior:'smooth'})">
+            Xem điểm đến gợi ý
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <h3>Private Concierge 24/7</h3>
+        <p>
+          Theo sát từ khâu đặt vé, khách sạn, trải nghiệm đến từng yêu cầu nhỏ
+          nhất trên hành trình.
+        </p>
+        <p><strong>Ưu tiên:</strong> Doanh nhân, gia đình cần không gian riêng tư &amp; bảo mật.</p>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      Cuộn xuống để bắt đầu hành trình
+      <div class="hero-arrow">↓</div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section id="destinations" class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span>Signature Destinations</span>
+        <h2>Điểm đến sang trọng</h2>
+        <p>Những hành trình được khách hàng cao cấp yêu thích.</p>
+      </div>
+
+      <div class="cards reveal">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Maldives" />
+          <div class="card-body">
+            <h3>Maldives Private Villa</h3>
+            <p>Kỳ nghỉ tại villa trên mặt biển – chuẩn 6 sao quốc tế, phục vụ riêng 24/7.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Kyoto" />
+          <div class="card-body">
+            <h3>Kyoto Ancient Luxury</h3>
+            <p>Văn hoá Nhật Bản tinh tế với ryokan riêng, onsen và kaiseki đẳng cấp.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7" alt="Sa Pa" />
+          <div class="card-body">
+            <h3>Sa Pa – Private Retreat</h3>
+            <p>Không gian retreat riêng tư giữa núi rừng Tây Bắc, villa có hồ bơi nước nóng &amp; spa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="about-tag">Vì sao chọn Luxury Travel?</div>
+          <h2>Hành trình được thiết kế cho từng người, không theo “tour mẫu”.</h2>
+          <p>
+            Mỗi chuyến đi được xây dựng dựa trên nhịp sống, sở thích và mức độ riêng tư mà
+            khách hàng mong muốn. Không ghép đoàn, không phải xoay theo lịch trình cứng nhắc.
+          </p>
+          <p>
+            Đội ngũ concierge theo sát trước – trong – sau hành trình, xử lý mọi thay đổi
+            chỉ qua một tin nhắn: nhà hàng, vé máy bay, lịch spa, golf, trải nghiệm bản địa...
+          </p>
+          <p><strong>Ưu tiên:</strong> Sự kín đáo, bảo mật thông tin và cảm xúc trọn vẹn cho gia đình.</p>
+        </div>
+
+        <div class="about-image reveal">
+          <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c" alt="About Luxury Travel" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section" style="background:#f0f1f6;">
+    <div class="container">
+      <div class="section-title reveal">
+        <span>Premium Services</span>
+        <h2>Dịch vụ cao cấp</h2>
+      </div>
+
+      <div class="cards reveal">
+        <div class="service-card">
+          <div class="service-icon">✈️</div>
+          <h3>Private Jet &amp; Business Class</h3>
+          <p>
+            Sắp xếp chuyên cơ riêng hoặc hạng thương gia tốt nhất, tối ưu thời gian di chuyển,
+            thủ tục ưu tiên và phòng chờ riêng.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🛥</div>
+          <h3>Luxury Cruise &amp; Yacht</h3>
+          <p>
+            Du thuyền hạng sang cho gia đình và đối tác – không gian lý tưởng để vừa nghỉ ngơi,
+            vừa trao đổi công việc nhẹ nhàng.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🌿</div>
+          <h3>Wellness &amp; Retreat</h3>
+          <p>
+            Chương trình detox, thiền, yoga, trị liệu cá nhân tại resort 5–6 sao, giúp nạp lại
+            năng lượng sau những giai đoạn làm việc căng thẳng.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span>Gallery</span>
+        <h2>Khoảnh khắc trên hành trình</h2>
+      </div>
+
+      <div class="gallery-strip reveal">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d" alt="Gallery 1" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef" alt="Gallery 3" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Gallery 4" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef" alt="Gallery 5" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span>Private Consultation</span>
+        <h2>Đăng ký tư vấn hành trình riêng</h2>
+        <p>Đội ngũ concierge sẽ liên hệ lại trong vòng 10 phút làm việc.</p>
+      </div>
+
+      <div class="booking-wrapper reveal">
+        <form onsubmit="event.preventDefault(); alert('Luxury Travel đã nhận yêu cầu của khách hàng. Đội concierge sẽ liên hệ lại trong thời gian sớm nhất.'); this.reset();">
+          <div class="booking-grid">
+            <div class="form-field">
+              <label>Họ tên</label>
+              <input type="text" required />
+            </div>
+            <div class="form-field">
+              <label>Số điện thoại</label>
+              <input type="tel" required />
+            </div>
+            <div class="form-field">
+              <label>Email (nếu có)</label>
+              <input type="email" />
+            </div>
+            <div class="form-field">
+              <label>Loại hành trình</label>
+              <select>
+                <option>Family Retreat</option>
+                <option>Business Trip</option>
+                <option>Honeymoon</option>
+                <option>Wellness &amp; Detox</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field" style="margin-top:14px;">
+            <label>Mong muốn của khách hàng</label>
+            <textarea placeholder="Ví dụ: muốn đi 4 ngày 3 đêm, cần không gian riêng tư, có hoạt động cho các bé..."></textarea>
+          </div>
+
+          <div class="booking-footer">
+            <button class="btn-book" type="submit">Gửi yêu cầu</button>
+            <div>Thông tin được bảo mật, chỉ dùng để tư vấn hành trình.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <h3>Luxury Travel</h3>
+      <p>Hành trình tinh tế – dành riêng cho những người bận rộn nhưng vẫn muốn sống trọn từng khoảnh khắc.</p>
+      <p>© 2025 Luxury Travel. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle mobile menu
+    const nav = document.getElementById("luxNav");
+    const toggleBtn = document.getElementById("luxToggle");
+    const header = document.getElementById("luxHeader");
+
+    toggleBtn.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      toggleBtn.classList.toggle("active");
+    });
+
+    // Change header when scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    reveals.forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
+
+
