@@ -6,7 +6,7 @@
   <title>Luxury Travel - Hành trình đẳng cấp</title>
 
   <!-- SEO cơ bản -->
-  <meta name="description" content="Luxury Travel - Thiết kế hành trình riêng tư, sang trọng, chuẩn 5 sao quốc tế cho khách hàng và gia đình." />
+  <meta name="description" content="Luxury Travel - Thiết kế hành trình riêng tư, sang trọng, chuẩn 5 sao quốc tế cho doanh nhân và gia đình." />
   <meta name="keywords" content="luxury travel, du lịch cao cấp, private jet, luxury cruise, retreat, resort 5 sao" />
 
   <!-- Font -->
@@ -100,26 +100,11 @@
       justify-content: space-between;
     }
 
-    /* Logo Luxury Travel */
     .lux-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
       color: var(--lux-gold);
       letter-spacing: 1px;
-    }
-    .lux-logo-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      border: 2px solid var(--lux-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: var(--lux-gold);
     }
 
     /* Desktop nav */
@@ -224,7 +209,7 @@
           rgba(0, 0, 0, 0.4),
           rgba(0, 0, 0, 0.7)
         ),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -356,7 +341,6 @@
       overflow: hidden;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
     }
 
     .card:hover {
@@ -553,61 +537,6 @@
       background: #151723;
     }
 
-    /* ================== CONTACT ================== */
-
-    #contact-card {
-      background: #ffffff;
-      border-radius: 20px;
-      box-shadow: 0 8px 26px rgba(0,0,0,0.08);
-      padding: 26px 26px 20px;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #f4f5fb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--lux-gold);
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-
-    .contact-text h4 {
-      margin: 0 0 4px;
-      font-size: 15px;
-    }
-
-    .contact-text p {
-      margin: 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .contact-map {
-      margin-top: 14px;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid #eee;
-    }
-
-    .contact-map iframe {
-      width: 100%;
-      height: 260px;
-      border: 0;
-    }
-
     /* ================== FOOTER ================== */
 
     .footer {
@@ -640,150 +569,6 @@
       transform: translateY(0);
     }
 
-    /* ================== LUXURY PRO MODAL ================== */
-
-    .lux-pro-modal {
-      display: none;
-      position: fixed;
-      z-index: 99999;
-      inset: 0;
-      background: rgba(0,0,0,0.65);
-      backdrop-filter: blur(5px);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      animation: fadeIn .3s;
-    }
-
-    .lux-pro-content {
-      background: #ffffff;
-      max-width: 960px;
-      width: 100%;
-      border-radius: 22px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      min-height: 420px;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
-      animation: slideUp .35s ease;
-    }
-
-    @media (max-width: 900px) {
-      .lux-pro-content {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .lux-pro-image {
-      position: relative;
-    }
-    .lux-pro-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .lux-pro-tag {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      background: rgba(0,0,0,0.55);
-      color: #f8f8f8;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .lux-pro-info {
-      padding: 26px 30px;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .lux-pro-close {
-      position: absolute;
-      top: 18px;
-      right: 24px;
-      font-size: 26px;
-      cursor: pointer;
-      color: #444;
-      z-index: 10;
-    }
-    .lux-pro-close:hover {
-      color: #000;
-    }
-
-    .lux-pro-title {
-      font-size: 24px;
-      margin-bottom: 6px;
-    }
-
-    .lux-pro-sub {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 14px;
-    }
-
-    .lux-pro-desc {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 12px;
-    }
-
-    .lux-pro-list {
-      padding-left: 18px;
-      margin: 0 0 18px;
-      font-size: 14px;
-      color: #444;
-    }
-
-    .lux-pro-list li + li {
-      margin-top: 4px;
-    }
-
-    .lux-pro-cta {
-      margin-top: auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .lux-pro-cta button {
-      border-radius: 999px;
-      border: none;
-      padding: 10px 22px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .lux-pro-main-btn {
-      background: var(--lux-gold);
-      color: var(--lux-dark);
-    }
-
-    .lux-pro-main-btn:hover {
-      background: #b48e4f;
-    }
-
-    .lux-pro-secondary-btn {
-      background: transparent;
-      border: 1px solid #ccc;
-      color: #444;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; } to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(25px); opacity: 0; }
-      to   { transform: translateY(0); opacity: 1; }
-    }
   </style>
 </head>
 <body>
@@ -791,10 +576,7 @@
   <!-- HEADER -->
   <header class="lux-header" id="luxHeader">
     <div class="lux-header-inner">
-      <div class="lux-logo">
-        <div class="lux-logo-icon">LT</div>
-        Luxury&nbsp;Travel
-      </div>
+      <div class="lux-logo">Luxury Travel</div>
 
       <nav class="lux-nav" id="luxNav">
         <a href="#destinations">Điểm đến</a>
@@ -819,8 +601,8 @@
         </div>
         <h1>Hành trình tinh tế – chuẩn giới hạn</h1>
         <p>
-          Khách hàng chỉ cần chọn cảm hứng, phần còn lại để đội ngũ concierge
-          thiết kế lịch trình riêng tư, sang trọng, đúng nhịp sống của gia đình.
+          Khách hàng chỉ cần chọn cảm hứng, còn lại để đội ngũ concierge thiết kế
+          lịch trình riêng tư, sang trọng, đúng nhịp sống của gia đình.
         </p>
         <div class="hero-actions">
           <button class="btn-main" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
@@ -838,13 +620,13 @@
           Theo sát từ khâu đặt vé, khách sạn, trải nghiệm đến từng yêu cầu nhỏ
           nhất trên hành trình.
         </p>
-        <p><strong>Ưu tiên:</strong> Khách hàng cần không gian riêng tư &amp; bảo mật.</p>
+        <p><strong>Ưu tiên:</strong> Doanh nhân, gia đình cần không gian riêng tư &amp; bảo mật.</p>
       </div>
     </div>
 
     <div class="hero-bottom">
       Cuộn xuống để bắt đầu hành trình
-      <div class="hero-arrow">⌄</div>
+      <div class="hero-arrow">↓</div>
     </div>
   </section>
 
@@ -852,30 +634,30 @@
   <section id="destinations" class="section">
     <div class="container">
       <div class="section-title reveal">
-        <span>SIGNATURE DESTINATIONS</span>
+        <span>Signature Destinations</span>
         <h2>Điểm đến sang trọng</h2>
         <p>Những hành trình được khách hàng cao cấp yêu thích.</p>
       </div>
 
       <div class="cards reveal">
-        <div class="card" onclick="openProModal('maldives')">
-          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80" alt="Maldives" />
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Maldives" />
           <div class="card-body">
             <h3>Maldives Private Villa</h3>
             <p>Kỳ nghỉ tại villa trên mặt biển – chuẩn 6 sao quốc tế, phục vụ riêng 24/7.</p>
           </div>
         </div>
 
-        <div class="card" onclick="openProModal('kyoto')">
-          <img src="https://images.unsplash.com/photo-1500534314211-0a24cd03f2c0?auto=format&fit=crop&w=1200&q=80" alt="Kyoto" />
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Kyoto" />
           <div class="card-body">
             <h3>Kyoto Ancient Luxury</h3>
             <p>Văn hoá Nhật Bản tinh tế với ryokan riêng, onsen và kaiseki đẳng cấp.</p>
           </div>
         </div>
 
-        <div class="card" onclick="openProModal('sapa')">
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80" alt="Sa Pa" />
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7" alt="Sa Pa" />
           <div class="card-body">
             <h3>Sa Pa – Private Retreat</h3>
             <p>Không gian retreat riêng tư giữa núi rừng Tây Bắc, villa có hồ bơi nước nóng &amp; spa.</p>
@@ -904,7 +686,7 @@
         </div>
 
         <div class="about-image reveal">
-          <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?auto=format&fit=crop&w=1200&q=80" alt="About Luxury Travel" />
+          <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c" alt="About Luxury Travel" />
         </div>
       </div>
     </div>
@@ -914,7 +696,7 @@
   <section id="services" class="section" style="background:#f0f1f6;">
     <div class="container">
       <div class="section-title reveal">
-        <span>PREMIUM SERVICES</span>
+        <span>Premium Services</span>
         <h2>Dịch vụ cao cấp</h2>
       </div>
 
@@ -923,7 +705,7 @@
           <div class="service-icon">✈️</div>
           <h3>Private Jet &amp; Business Class</h3>
           <p>
-            Sắp xếp chuyên cơ riêng hoặc hạng thương gia, tối ưu thời gian di chuyển,
+            Sắp xếp chuyên cơ riêng hoặc hạng thương gia tốt nhất, tối ưu thời gian di chuyển,
             thủ tục ưu tiên và phòng chờ riêng.
           </p>
         </div>
@@ -953,19 +735,22 @@
   <section class="section">
     <div class="container">
       <div class="section-title reveal">
-        <span>GALLERY</span>
+        <span>Gallery</span>
         <h2>Khoảnh khắc trên hành trình</h2>
       </div>
 
       <div class="gallery-strip reveal">
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=800&q=80" alt="Gallery 1" />
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d" alt="Gallery 1" />
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=800&q=80" alt="Gallery 3" />
+          <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef" alt="Gallery 3" />
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80" alt="Gallery 4" />
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Gallery 4" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef" alt="Gallery 5" />
         </div>
       </div>
     </div>
@@ -975,7 +760,7 @@
   <section id="booking" class="section">
     <div class="container">
       <div class="section-title reveal">
-        <span>PRIVATE CONSULTATION</span>
+        <span>Private Consultation</span>
         <h2>Đăng ký tư vấn hành trình riêng</h2>
         <p>Đội ngũ concierge sẽ liên hệ lại trong vòng 10 phút làm việc.</p>
       </div>
@@ -1020,81 +805,14 @@
     </div>
   </section>
 
-  <!-- CONTACT CARD + MAP -->
-  <section id="contact" class="section" style="padding-top:40px;">
-    <div class="container">
-      <div class="section-title reveal">
-        <span>CONTACT</span>
-        <h2>Liên hệ Luxury Travel</h2>
-        <p>Khách hàng có thể liên hệ trực tiếp để được hỗ trợ nhanh nhất.</p>
-      </div>
-
-      <div id="contact-card" class="reveal">
-        <div class="contact-row">
-          <div class="contact-icon">📍</div>
-          <div class="contact-text">
-            <h4>Address</h4>
-            <p>30 Tran Cao Van Street, Xuan Hoa Ward, Ho Chi Minh City</p>
-          </div>
-        </div>
-
-        <div class="contact-row">
-          <div class="contact-icon">📞</div>
-          <div class="contact-text">
-            <h4>Call Us</h4>
-            <p>+84 988 013 072</p>
-          </div>
-        </div>
-
-        <div class="contact-row">
-          <div class="contact-icon">✉️</div>
-          <div class="contact-text">
-            <h4>Email Us</h4>
-            <p>ttdkhcm@moj.gov.vn</p>
-          </div>
-        </div>
-
-        <div class="contact-map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.411004988092!2d106.68808431534902!3d10.77978399231983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3e9b41f6c3%3A0x92a768c13213d63a!2zVHJ1bmcgVMOibSDEkOG7qWMgZ2nhuqVwIGThu6ljLCBow6BuZyB0w6JwIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2svi!4v1700000000000"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="container">
       <h3>Luxury Travel</h3>
       <p>Hành trình tinh tế – dành riêng cho những người bận rộn nhưng vẫn muốn sống trọn từng khoảnh khắc.</p>
       <p>© 2025 Luxury Travel. All Rights Reserved.</p>
     </div>
   </footer>
-
-  <!-- LUXURY PRO MODAL -->
-  <div id="luxProModal" class="lux-pro-modal">
-    <div class="lux-pro-content">
-      <div class="lux-pro-image">
-        <img id="luxProImg" src="" alt="Luxury destination" />
-        <div class="lux-pro-tag" id="luxProTag"></div>
-      </div>
-      <div class="lux-pro-info">
-        <div class="lux-pro-close" onclick="closeProModal()">×</div>
-        <h2 class="lux-pro-title" id="luxProTitle"></h2>
-        <div class="lux-pro-sub" id="luxProSub"></div>
-        <p class="lux-pro-desc" id="luxProDesc"></p>
-        <ul class="lux-pro-list" id="luxProList"></ul>
-        <div class="lux-pro-cta">
-          <button class="lux-pro-main-btn" onclick="bookFromModal()">Đặt hành trình này</button>
-          <button class="lux-pro-secondary-btn" onclick="closeProModal()">Đóng</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script>
     // Toggle mobile menu
@@ -1130,101 +848,8 @@
       { threshold: 0.15 }
     );
     reveals.forEach((el) => observer.observe(el));
-
-    // ===== LUXURY PRO MODAL DATA =====
-    const proData = {
-      maldives: {
-        tag: "Maldives • Indian Ocean",
-        title: "Maldives Private Villa",
-        sub: "Kỳ nghỉ trên mặt biển – chuẩn 6 sao quốc tế",
-        desc: "Thiết kế cho những khách hàng cần tuyệt đối riêng tư: villa nằm tách biệt trên mặt biển, quản gia riêng 24/7 và mọi dịch vụ được mang đến tận phòng.",
-        image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
-        bullets: [
-          "Đưa đón bằng speedboat hoặc thuỷ phi cơ riêng.",
-          "Villa trên mặt nước với hồ bơi vô cực, breakfast nổi trên hồ.",
-          "Private chef & dinner set-up ngay tại ban công hướng hoàng hôn.",
-          "Hoạt động: lặn biển ngắm san hô, picnic trên đảo riêng, spa đôi."
-        ]
-      },
-      kyoto: {
-        tag: "Japan • Kyoto",
-        title: "Kyoto Ancient Luxury",
-        sub: "Chạm vào chiều sâu văn hoá Nhật Bản",
-        desc: "Hành trình dành cho những ai yêu sự tĩnh lặng và tinh tế của Nhật: ryokan cổ, onsen riêng và ẩm thực kaiseki chuẩn bản địa.",
-        image: "https://images.unsplash.com/photo-1500534314211-0a24cd03f2c0?auto=format&fit=crop&w=1400&q=80",
-        bullets: [
-          "Lưu trú tại ryokan truyền thống, tatami & futon, onsen riêng.",
-          "Bữa tối kaiseki nhiều món được trình bày như một tác phẩm nghệ thuật.",
-          "Trải nghiệm trà đạo, kimono walk, tham quan đền Fushimi Inari, Arashiyama.",
-          "Có thể kết hợp 1–2 ngày làm việc nhẹ ở Osaka hoặc Tokyo."
-        ]
-      },
-      sapa: {
-        tag: "Vietnam • Northwest",
-        title: "Sa Pa – Private Retreat",
-        sub: "Retreat riêng tư giữa mây núi Tây Bắc",
-        desc: "Thiết kế cho kỳ nghỉ ngắn ngày nhưng cần reset hoàn toàn năng lượng: khí hậu mát mẻ, cảnh núi non hùng vĩ và dịch vụ spa trọn gói.",
-        image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=80",
-        bullets: [
-          "Villa riêng nhìn ra thung lũng, có hồ nước nóng hoặc bồn tắm ngoài trời.",
-          "Gói spa, xông hơi, massage thảo mộc bản địa mỗi ngày.",
-          "Trekking nhẹ nhàng qua bản làng, chụp ảnh ruộng bậc thang.",
-          "Phù hợp cho gia đình, nhóm bạn hoặc retreat nội bộ quy mô nhỏ."
-        ]
-      }
-    };
-
-    const luxProModal = document.getElementById("luxProModal");
-    const luxProImg = document.getElementById("luxProImg");
-    const luxProTag = document.getElementById("luxProTag");
-    const luxProTitle = document.getElementById("luxProTitle");
-    const luxProSub = document.getElementById("luxProSub");
-    const luxProDesc = document.getElementById("luxProDesc");
-    const luxProList = document.getElementById("luxProList");
-    let currentProKey = null;
-
-    function openProModal(key) {
-      const data = proData[key];
-      if (!data) return;
-
-      currentProKey = key;
-      luxProImg.src = data.image;
-      luxProTag.textContent = data.tag;
-      luxProTitle.textContent = data.title;
-      luxProSub.textContent = data.sub;
-      luxProDesc.textContent = data.desc;
-
-      luxProList.innerHTML = "";
-      data.bullets.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        luxProList.appendChild(li);
-      });
-
-      luxProModal.style.display = "flex";
-    }
-
-    function closeProModal() {
-      luxProModal.style.display = "none";
-    }
-
-    function bookFromModal() {
-      closeProModal();
-      const bookingSection = document.getElementById("booking");
-      bookingSection.scrollIntoView({ behavior: "smooth" });
-    }
-
-    // Close when click outside
-    window.addEventListener("click", (e) => {
-      if (e.target === luxProModal) {
-        closeProModal();
-      }
-    });
-
-    // Close on ESC
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeProModal();
-    });
   </script>
 </body>
 </html>
+
+
