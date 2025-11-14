@@ -82,3 +82,39 @@ function toggleMenu() {
   nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
 }
 </script>
+/* ===== CONTACT ===== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  background: #fff;
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.contact-item .icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.contact-item h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.map-box {
+  margin-top: 20px;
+}
+
