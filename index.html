@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luxury Travel - Hành trình đẳng cấp</title>
 
-  <!-- SEO -->
-  <meta name="description" content="Luxury Travel - Thiết kế hành trình riêng tư, sang trọng, chuẩn 5 sao quốc tế dành cho khách hàng và gia đình." />
-  <meta name="keywords" content="luxury travel, du lịch cao cấp, private jet, retreat, resort 5 sao" />
+  <!-- SEO cơ bản -->
+  <meta name="description" content="Luxury Travel - Thiết kế hành trình riêng tư, sang trọng, chuẩn 5 sao quốc tế cho doanh nhân và gia đình." />
+  <meta name="keywords" content="luxury travel, du lịch cao cấp, private jet, luxury cruise, retreat, resort 5 sao" />
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,10 @@
       --lux-white: #ffffff;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: "Montserrat", sans-serif;
@@ -48,7 +51,9 @@
       padding: 0 20px;
     }
 
-    section { padding: 80px 0; }
+    section {
+      padding: 80px 0;
+    }
 
     .section-title {
       text-align: center;
@@ -68,6 +73,7 @@
     }
 
     /* ================== HEADER ================== */
+
     .lux-header {
       position: fixed;
       top: 0;
@@ -98,6 +104,7 @@
       font-size: 26px;
       font-weight: 700;
       color: var(--lux-gold);
+      letter-spacing: 1px;
     }
 
     /* Desktop nav */
@@ -127,9 +134,11 @@
       transition: width 0.25s;
     }
 
-    .lux-nav a:hover::after { width: 100%; }
+    .lux-nav a:hover::after {
+      width: 100%;
+    }
 
-    /* Mobile menu */
+    /* Hamburger icon */
     .lux-menu-toggle {
       display: none;
       width: 26px;
@@ -155,13 +164,18 @@
     .lux-menu-toggle.active span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
-    .lux-menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .lux-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
     .lux-menu-toggle.active span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
 
+    /* Mobile nav */
     @media (max-width: 768px) {
-      .lux-menu-toggle { display: block; }
+      .lux-menu-toggle {
+        display: block;
+      }
 
       .lux-nav {
         position: absolute;
@@ -176,10 +190,17 @@
         display: none;
       }
 
-      .lux-nav.open { display: flex; }
+      .lux-nav a {
+        font-size: 16px;
+      }
+
+      .lux-nav.open {
+        display: flex;
+      }
     }
 
     /* ================== HERO ================== */
+
     .hero {
       height: 100vh;
       min-height: 560px;
@@ -188,7 +209,7 @@
           rgba(0, 0, 0, 0.4),
           rgba(0, 0, 0, 0.7)
         ),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80");
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -208,7 +229,9 @@
       gap: 40px;
     }
 
-    .hero-text { max-width: 520px; }
+    .hero-text {
+      max-width: 520px;
+    }
 
     .hero-text h1 {
       font-size: 40px;
@@ -255,7 +278,9 @@
       color: var(--lux-dark);
     }
 
-    .btn-main:hover { background: #b48e4f; }
+    .btn-main:hover {
+      background: #b48e4f;
+    }
 
     .btn-ghost {
       background: transparent;
@@ -280,7 +305,30 @@
       font-size: 20px;
     }
 
+    .hero-bottom {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #f5f5f5;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .hero-arrow {
+      margin-top: 6px;
+      font-size: 18px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
     /* ================== DESTINATIONS ================== */
+
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -321,6 +369,7 @@
     }
 
     /* ================== ABOUT ================== */
+
     .about-grid {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
@@ -343,15 +392,19 @@
 
     .about-image img {
       width: 100%;
+      display: block;
       height: 100%;
       object-fit: cover;
     }
 
     @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ================== SERVICES ================== */
+
     .service-card {
       background: var(--lux-white);
       padding: 24px;
@@ -372,6 +425,7 @@
     }
 
     /* ================== GALLERY ================== */
+
     .gallery-strip {
       display: flex;
       gap: 18px;
@@ -404,6 +458,7 @@
     }
 
     /* ================== BOOKING ================== */
+
     .booking-wrapper {
       max-width: 720px;
       margin: auto;
@@ -420,7 +475,9 @@
     }
 
     @media (max-width: 700px) {
-      .booking-grid { grid-template-columns: 1fr; }
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .form-field label {
@@ -443,7 +500,28 @@
       transition: border 0.2s, box-shadow 0.2s;
     }
 
-    .form-field textarea { resize: vertical; min-height: 80px; }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-color: var(--lux-gold);
+      box-shadow: 0 0 0 2px rgba(197, 164, 109, 0.2);
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .booking-footer {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 13px;
+      color: #555;
+    }
 
     .btn-book {
       border-radius: 999px;
@@ -455,7 +533,12 @@
       cursor: pointer;
     }
 
+    .btn-book:hover {
+      background: #151723;
+    }
+
     /* ================== FOOTER ================== */
+
     .footer {
       background: var(--lux-dark);
       color: #ddd;
@@ -468,7 +551,13 @@
       margin-bottom: 6px;
     }
 
-    /* ================== REVEAL ================== */
+    .footer p {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    /* ================== REVEAL ON SCROLL ================== */
+
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -482,7 +571,6 @@
 
   </style>
 </head>
-
 <body>
 
   <!-- HEADER -->
@@ -508,15 +596,14 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <div class="hero-text reveal">
-        <div class="hero-badge">Signature Journey</div>
-
+        <div class="hero-badge">
+          <span>Signature Journey</span>
+        </div>
         <h1>Hành trình tinh tế – chuẩn giới hạn</h1>
-
         <p>
           Khách hàng chỉ cần chọn cảm hứng, còn lại để đội ngũ concierge thiết kế
-          lịch trình riêng tư, sang trọng, đúng phong cách sống của bạn và gia đình.
+          lịch trình riêng tư, sang trọng, đúng nhịp sống của gia đình.
         </p>
-
         <div class="hero-actions">
           <button class="btn-main" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
             Đặt tư vấn 1:1
@@ -533,13 +620,13 @@
           Theo sát từ khâu đặt vé, khách sạn, trải nghiệm đến từng yêu cầu nhỏ
           nhất trên hành trình.
         </p>
-        <p><strong>Ưu tiên:</strong> khách hàng cần không gian riêng tư & bảo mật.</p>
+        <p><strong>Ưu tiên:</strong> Doanh nhân, gia đình cần không gian riêng tư &amp; bảo mật.</p>
       </div>
     </div>
 
     <div class="hero-bottom">
-      Cuộn xuống để bắt đầu
-      <div class="hero-arrow">⌄</div>
+      Cuộn xuống để bắt đầu hành trình
+      <div class="hero-arrow">↓</div>
     </div>
   </section>
 
@@ -553,9 +640,8 @@
       </div>
 
       <div class="cards reveal">
-
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1400&q=80">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Maldives" />
           <div class="card-body">
             <h3>Maldives Private Villa</h3>
             <p>Kỳ nghỉ tại villa trên mặt biển – chuẩn 6 sao quốc tế, phục vụ riêng 24/7.</p>
@@ -563,15 +649,16 @@
         </div>
 
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Kyoto" />
           <div class="card-body">
             <h3>Kyoto Ancient Luxury</h3>
             <p>Văn hoá Nhật Bản tinh tế với ryokan riêng, onsen và kaiseki đẳng cấp.</p>
           </div>
         </div>
 
+        <!-- Ảnh Santorini đã sửa link để luôn load được -->
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1500534314211-0a24cd03f2c0?auto=format&fit=crop&w=1400&q=80">
+          <img src="https://images.unsplash.com/photo-1500534314211-0a24cd03f2c0?auto=format&fit=crop&w=1200&q=80" alt="Santorini" />
           <div class="card-body">
             <h3>Santorini Signature Sunset</h3>
             <p>Hoàng hôn đẹp nhất thế giới, vang Hy Lạp và private dinner.</p>
@@ -579,13 +666,12 @@
         </div>
 
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=80">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7" alt="Sa Pa" />
           <div class="card-body">
             <h3>Sa Pa – Private Retreat</h3>
-            <p>Không gian retreat riêng tư giữa núi rừng Tây Bắc.</p>
+            <p>Không gian retreat riêng tư giữa núi rừng Tây Bắc, villa có hồ bơi nước nóng &amp; spa.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -594,27 +680,23 @@
   <section id="about" class="section">
     <div class="container">
       <div class="about-grid">
-
         <div class="reveal">
           <div class="about-tag">Vì sao chọn Luxury Travel?</div>
-          <h2>Hành trình được thiết kế riêng cho từng khách hàng.</h2>
-
+          <h2>Hành trình được thiết kế cho từng người, không theo “tour mẫu”.</h2>
           <p>
-            Mỗi chuyến đi được xây dựng dựa trên phong cách sống, sở thích và mức độ riêng tư
-            mà khách hàng mong muốn.
+            Mỗi chuyến đi được xây dựng dựa trên nhịp sống, sở thích và mức độ riêng tư mà
+            khách hàng mong muốn. Không ghép đoàn, không phải xoay theo lịch trình cứng nhắc.
           </p>
-
           <p>
-            Concierge theo sát trước – trong – sau chuyến đi, xử lý mọi yêu cầu chỉ với một tin nhắn.
+            Đội ngũ concierge theo sát trước – trong – sau hành trình, xử lý mọi thay đổi
+            chỉ qua một tin nhắn: nhà hàng, vé máy bay, lịch spa, golf, trải nghiệm bản địa...
           </p>
-
-          <p><strong>Cam kết:</strong> Kín đáo, bảo mật thông tin.</p>
+          <p><strong>Ưu tiên:</strong> Sự kín đáo, bảo mật thông tin và cảm xúc trọn vẹn cho gia đình.</p>
         </div>
 
         <div class="about-image reveal">
-          <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?auto=format&fit=crop&w=1400&q=80">
+          <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c" alt="About Luxury Travel" />
         </div>
-
       </div>
     </div>
   </section>
@@ -622,32 +704,38 @@
   <!-- SERVICES -->
   <section id="services" class="section" style="background:#f0f1f6;">
     <div class="container">
-
       <div class="section-title reveal">
         <span>Premium Services</span>
         <h2>Dịch vụ cao cấp</h2>
       </div>
 
       <div class="cards reveal">
-
         <div class="service-card">
           <div class="service-icon">✈️</div>
-          <h3>Private Jet & Business Class</h3>
-          <p>Ưu tiên thời gian, thủ tục nhanh, phòng chờ riêng.</p>
+          <h3>Private Jet &amp; Business Class</h3>
+          <p>
+            Sắp xếp chuyên cơ riêng hoặc hạng thương gia tốt nhất, tối ưu thời gian di chuyển,
+            thủ tục ưu tiên và phòng chờ riêng.
+          </p>
         </div>
 
         <div class="service-card">
           <div class="service-icon">🛥</div>
-          <h3>Luxury Cruise & Yacht</h3>
-          <p>Du thuyền hạng sang cho kỳ nghỉ riêng tư.</p>
+          <h3>Luxury Cruise &amp; Yacht</h3>
+          <p>
+            Du thuyền hạng sang cho gia đình và đối tác – không gian lý tưởng để vừa nghỉ ngơi,
+            vừa trao đổi công việc nhẹ nhàng.
+          </p>
         </div>
 
         <div class="service-card">
           <div class="service-icon">🌿</div>
-          <h3>Wellness Retreat</h3>
-          <p>Detox – thiền – yoga trong không gian resort 6 sao.</p>
+          <h3>Wellness &amp; Retreat</h3>
+          <p>
+            Chương trình detox, thiền, yoga, trị liệu cá nhân tại resort 5–6 sao, giúp nạp lại
+            năng lượng sau những giai đoạn làm việc căng thẳng.
+          </p>
         </div>
-
       </div>
     </div>
   </section>
@@ -655,76 +743,78 @@
   <!-- GALLERY -->
   <section class="section">
     <div class="container">
-
       <div class="section-title reveal">
         <span>Gallery</span>
         <h2>Khoảnh khắc trên hành trình</h2>
       </div>
 
       <div class="gallery-strip reveal">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1400&q=80"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=1400&q=80"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=1400&q=80"></div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d" alt="Gallery 1" />
+        </div>
+        <!-- Ảnh Gallery 2 đã sửa link để luôn load được -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=1000&q=80" alt="Gallery 2" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef" alt="Gallery 3" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Gallery 4" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef" alt="Gallery 5" />
+        </div>
       </div>
-
     </div>
   </section>
 
   <!-- BOOKING -->
   <section id="booking" class="section">
     <div class="container">
-
       <div class="section-title reveal">
         <span>Private Consultation</span>
         <h2>Đăng ký tư vấn hành trình riêng</h2>
-        <p>Đội ngũ concierge sẽ liên hệ trong 10 phút làm việc.</p>
+        <p>Đội ngũ concierge sẽ liên hệ lại trong vòng 10 phút làm việc.</p>
       </div>
 
       <div class="booking-wrapper reveal">
-        <form onsubmit="event.preventDefault(); alert('Luxury Travel đã nhận yêu cầu của khách hàng. Chúng tôi sẽ liên hệ sớm nhất.'); this.reset();">
-
+        <form onsubmit="event.preventDefault(); alert('Luxury Travel đã nhận yêu cầu của khách hàng. Đội concierge sẽ liên hệ lại trong thời gian sớm nhất.'); this.reset();">
           <div class="booking-grid">
             <div class="form-field">
-              <label>Họ tên khách hàng</label>
+              <label>Họ tên</label>
               <input type="text" required />
             </div>
-
             <div class="form-field">
               <label>Số điện thoại</label>
               <input type="tel" required />
             </div>
-
             <div class="form-field">
               <label>Email (nếu có)</label>
               <input type="email" />
             </div>
-
             <div class="form-field">
               <label>Loại hành trình</label>
               <select>
                 <option>Family Retreat</option>
                 <option>Business Trip</option>
                 <option>Honeymoon</option>
-                <option>Wellness & Detox</option>
+                <option>Wellness &amp; Detox</option>
               </select>
             </div>
           </div>
 
           <div class="form-field" style="margin-top:14px;">
             <label>Mong muốn của khách hàng</label>
-            <textarea placeholder="Ví dụ: muốn đi 4 ngày 3 đêm, cần không gian riêng tư, có hoạt động cho trẻ em..."></textarea>
+            <textarea placeholder="Ví dụ: muốn đi 4 ngày 3 đêm, cần không gian riêng tư, có hoạt động cho các bé..."></textarea>
           </div>
 
           <div class="booking-footer">
             <button class="btn-book" type="submit">Gửi yêu cầu</button>
-            <div>Thông tin được bảo mật tuyệt đối.</div>
+            <div>Thông tin được bảo mật, chỉ dùng để tư vấn hành trình.</div>
           </div>
-
         </form>
       </div>
-
     </div>
   </section>
 
@@ -732,7 +822,7 @@
   <footer class="footer" id="contact">
     <div class="container">
       <h3>Luxury Travel</h3>
-      <p>Hành trình tinh tế – dành cho khách hàng bận rộn nhưng muốn tận hưởng trọn vẹn từng khoảnh khắc.</p>
+      <p>Hành trình tinh tế – dành riêng cho những người bận rộn nhưng vẫn muốn sống trọn từng khoảnh khắc.</p>
       <p>© 2025 Luxury Travel. All Rights Reserved.</p>
     </div>
   </footer>
@@ -748,13 +838,16 @@
       toggleBtn.classList.toggle("active");
     });
 
-    // Sticky header
+    // Change header when scroll
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) header.classList.add("scrolled");
-      else header.classList.remove("scrolled");
+      if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
     });
 
-    // Reveal animation
+    // Reveal on scroll
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -769,6 +862,5 @@
     );
     reveals.forEach((el) => observer.observe(el));
   </script>
-
 </body>
 </html>
