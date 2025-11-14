@@ -1,0 +1,124 @@
+/* ===== GENERAL ===== */
+:root {
+    --lux-gold: #c5a46d;
+    --lux-dark: #0f0f0f;
+    --lux-white: #ffffff;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    color: var(--lux-dark);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    color: var(--lux-dark);
+}
+
+/* ===== HEADER ===== */
+.header {
+    background: var(--lux-dark);
+    color: var(--lux-white);
+    padding: 18px 0;
+}
+
+.header .sitename {
+    color: var(--lux-gold);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.header nav a {
+    color: #eee;
+    margin-left: 22px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.header nav a:hover {
+    color: var(--lux-gold);
+}
+
+/* ===== HERO ===== */
+.hero-text-box {
+    background: rgba(0,0,0,0.45);
+    padding: 32px;
+    border-radius: 16px;
+    max-width: 520px;
+    backdrop-filter: blur(4px);
+}
+
+.btn-get-started {
+    background: var(--lux-gold);
+    border: none;
+    padding: 12px 26px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-get-started:hover {
+    background: #b48e4f;
+}
+
+/* ===== DESTINATIONS ===== */
+.card {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.card-img-top {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.card-body h5 {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card-body p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ===== SERVICES ===== */
+.service-card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+}
+
+/* ===== BOOKING ===== */
+.booking-form {
+    max-width: 650px;
+    margin: auto;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--lux-dark);
+    color: #eee;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer .sitename {
+    color: var(--lux-gold);
+    font-size: 20px;
+}
