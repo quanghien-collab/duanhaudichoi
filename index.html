@@ -1,263 +1,257 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Travel</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Travel</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --lux-gold: #d4b27f;
-            --lux-dark: #0d0d0d;
-            --lux-white: #ffffff;
-            --soft-bg: #f7f5f2;
-        }
+<style>
+    :root {
+        --gold: #d8b97a;
+        --dark: #1a1a1a;
+        --white: #ffffff;
+        --bg-soft: #f6f3ef;
+    }
 
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: var(--soft-bg);
-            color: var(--lux-dark);
-        }
+    body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: var(--bg-soft);
+    }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-        }
+    h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+    }
 
-        /* HEADER */
-        header {
-            background: var(--lux-dark);
-            padding: 18px 0;
-        }
+    /* HEADER */
+    header {
+        background: var(--white);
+        padding: 15px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
+    .nav-wrapper {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
 
-        .sitename {
-            color: var(--lux-gold);
-            font-size: 26px;
-            font-weight: 700;
-        }
+    .sitename {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--dark);
+    }
 
-        nav a {
-            color: #eee;
-            margin-left: 25px;
-            font-size: 15px;
-            text-decoration: none;
-        }
+    nav a {
+        margin-left: 22px;
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+    }
 
-        nav a:hover {
-            color: var(--lux-gold);
-        }
+    nav a:hover {
+        color: var(--gold);
+    }
 
-        /* HERO */
-        .hero {
-            height: 70vh;
-            background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+    /* HERO */
+    .hero {
+        height: 72vh;
+        background: url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=2100&q=80") center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 
-        .hero-text {
-            background: rgba(0,0,0,0.45);
-            padding: 28px 40px;
-            border-radius: 18px;
-            color: white;
-            backdrop-filter: blur(6px);
-        }
+    .hero-box {
+        background: rgba(0,0,0,0.45);
+        padding: 30px 40px;
+        border-radius: 20px;
+        color: var(--white);
+        backdrop-filter: blur(4px);
+    }
 
-        .hero-text h1 {
-            font-size: 50px;
-            margin: 0;
-        }
+    .hero-box h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
 
-        .btn-main {
-            margin-top: 15px;
-            padding: 12px 26px;
-            border-radius: 30px;
-            background: var(--lux-gold);
-            border: none;
-            color: black;
-            font-weight: 600;
-        }
+    /* DESTINATIONS */
+    .section {
+        max-width: 1200px;
+        margin: 70px auto;
+        padding: 0 20px;
+    }
 
-        .btn-main:hover {
-            background: #c2995b;
-        }
+    .section-title {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
 
-        /* DESTINATIONS */
-        .section {
-            padding: 70px 0;
-            max-width: 1200px;
-            margin: auto;
-        }
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 30px;
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 38px;
-        }
+    .card {
+        background: var(--white);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
 
-        .dest-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
 
-        .card {
-            background: white;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-        }
+    .card-body {
+        padding: 20px;
+    }
 
-        .card img {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-        }
+    .card-body h3 {
+        font-size: 22px;
+        margin-top: 0;
+    }
 
-        .card-body {
-            padding: 18px;
-        }
+    /* GALLERY */
+    .gallery-title {
+        text-align: center;
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
 
-        /* GALLERY */
-        .gallery-grid {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
-        }
+    .gallery-strip {
+        display: flex;
+        overflow-x: auto;
+        gap: 22px;
+        padding: 15px 0;
+    }
 
-        .gallery-grid img {
-            height: 230px;
-            width: 330px;
-            border-radius: 16px;
-            object-fit: cover;
-        }
+    .gallery-strip img {
+        width: 330px;
+        height: 230px;
+        border-radius: 16px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
 
-        /* FORM */
-        .form-box {
-            background: #fff4dd;
-            padding: 30px;
-            border-radius: 18px;
-            max-width: 780px;
-            margin: auto;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
-        }
+    /* FORM VIP */
+    .form-wrapper {
+        background: #fff2dc;
+        padding: 35px;
+        border-radius: 22px;
+        max-width: 780px;
+        margin: auto;
+        box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+    }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            font-size: 15px;
-        }
+    input, select, textarea {
+        width: 100%;
+        padding: 13px;
+        margin-top: 10px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        font-size: 15px;
+        background: white;
+    }
 
-        textarea {
-            height: 120px;
-        }
+    textarea {
+        height: 120px;
+    }
 
-        .btn-submit {
-            background: var(--lux-dark);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 30px;
-            border: none;
-            font-weight: 600;
-        }
+    .btn-submit {
+        background: var(--dark);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        border: none;
+        font-weight: 600;
+    }
 
-        .btn-submit:hover {
-            background: #222;
-        }
+    .btn-submit:hover {
+        opacity: 0.9;
+        cursor: pointer;
+    }
 
-        /* FOOTER */
-        footer {
-            background: var(--lux-dark);
-            color: #eee;
-            text-align: center;
-            padding: 40px 0;
-        }
+    /* FOOTER */
+    footer {
+        background: var(--dark);
+        color: white;
+        text-align: center;
+        padding: 45px 0;
+        margin-top: 50px;
+    }
 
-        .footer-logo {
-            color: var(--lux-gold);
-            font-size: 20px;
-            font-weight: 700;
-        }
-    </style>
+    .footer-logo {
+        font-size: 24px;
+        color: var(--gold);
+        font-weight: 700;
+    }
+
+</style>
 </head>
 
 <body>
 
 <!-- HEADER -->
 <header>
-    <div class="nav-container">
+    <div class="nav-wrapper">
         <div class="sitename">Luxury Travel</div>
         <nav>
-            <a href="#destinations">Điểm đến</a>
-            <a href="#gallery">Hình ảnh</a>
-            <a href="#booking">Tư vấn</a>
+            <a href="#dest">Điểm đến</a>
+            <a href="#gal">Hình ảnh</a>
+            <a href="#book">Tư vấn</a>
         </nav>
     </div>
 </header>
 
 <!-- HERO -->
 <div class="hero">
-    <div class="hero-text">
-        <h1>Hành trình sang trọng – Đẳng cấp</h1>
-        <p>Thiết kế riêng theo phong cách 6 sao dành cho bạn</p>
-        <button class="btn-main">Khám phá ngay</button>
+    <div class="hero-box">
+        <h1>Trải nghiệm tinh tế – Hành trình đẳng cấp</h1>
+        <p>Private luxury trip dành riêng cho bạn</p>
     </div>
 </div>
 
 <!-- DESTINATIONS -->
-<section class="section" id="destinations">
+<section class="section" id="dest">
     <h2 class="section-title">Điểm đến nổi bật</h2>
 
-    <div class="dest-grid">
+    <div class="grid-3">
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80">
             <div class="card-body">
                 <h3>Maldives Private Villa</h3>
-                <p>Kỳ nghỉ biệt lập trên mặt biển – chuẩn 6 sao quốc tế.</p>
+                Kỳ nghỉ trên mặt biển chuẩn 6 sao quốc tế.
             </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1524231757912-21f4b56fd859?auto=format&fit=crop&w=900&q=80">
+            <img src="https://images.unsplash.com/photo-1524231757912-21f4b56fd859?auto=format&fit=crop&w=1000&q=80">
             <div class="card-body">
                 <h3>Kyoto Ancient Luxury</h3>
-                <p>Ryokan kiểu Nhật cổ – trải nghiệm tĩnh lặng & sang trọng.</p>
+                Văn hóa Nhật Bản tinh tế & riêng tư.
             </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1505730836536-7feaf9ae3a2d?auto=format&fit=crop&w=900&q=80">
+            <img src="https://images.unsplash.com/photo-1505731132164-cca7e02ad2c0?auto=format&fit=crop&w=1000&q=80">
             <div class="card-body">
                 <h3>Santorini Signature Sunset</h3>
-                <p>Ngắm hoàng hôn đẹp nhất thế giới, private dinner trên vách đá.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80">
-            <div class="card-body">
-                <h3>Sa Pa – Private Retreat</h3>
-                <p>Khu nghỉ riêng tư giữa núi rừng – không khí tinh khiết.</p>
+                Hoàng hôn đẹp nhất thế giới, private dinner chuẩn Hy Lạp.
             </div>
         </div>
 
@@ -265,43 +259,43 @@
 </section>
 
 <!-- GALLERY -->
-<section class="section" id="gallery">
-    <h2 class="section-title">Khoảnh khắc trên hành trình</h2>
+<section class="section" id="gal">
+    <h2 class="gallery-title">Khoảnh khắc trên hành trình</h2>
 
-    <div class="gallery-grid">
-        <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=900&q=80">
+    <div class="gallery-strip">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80">
         <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80">
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80">
     </div>
 </section>
 
-<!-- BOOKING -->
-<section class="section" id="booking">
+<!-- CONSULTATION -->
+<section class="section" id="book">
     <h2 class="section-title">Đăng ký tư vấn hành trình riêng</h2>
-    <p style="text-align:center; margin-top:-10px;">Chúng tôi sẽ liên hệ lại trong 10 phút làm việc.</p>
+    <p style="text-align:center;margin-top:-12px;">Chúng tôi sẽ liên hệ trong 10 phút làm việc.</p>
 
-    <div class="form-box">
+    <div class="form-wrapper">
         <form>
             <label>Họ tên khách hàng</label>
-            <input type="text" placeholder="Ví dụ: Nguyễn Văn An">
+            <input type="text" placeholder="VD: Trần Minh Hoàng">
 
             <label>Số điện thoại</label>
             <input type="text" placeholder="Số điện thoại của bạn">
 
             <label>Email</label>
-            <input type="email" placeholder="Tùy chọn">
+            <input type="email" placeholder="Không bắt buộc">
 
-            <label>Loại hành trình</label>
+            <label>Loại hành trình quan tâm</label>
             <select>
-                <option>Luxury Couple</option>
-                <option>Family Retreat</option>
+                <option>Couple Retreat</option>
+                <option>Family Trip</option>
                 <option>Private Yacht</option>
-                <option>Wellness Detox</option>
+                <option>Luxury Wellness</option>
             </select>
 
             <label>Mong muốn của bạn</label>
-            <textarea placeholder="Ví dụ: muốn đi 4 ngày 3 đêm, không gian riêng tư, ăn tối ven biển..."></textarea>
+            <textarea placeholder="VD: muốn đi 4 ngày 3 đêm, yêu cầu không gian riêng tư..."></textarea>
 
             <button class="btn-submit">Gửi yêu cầu</button>
         </form>
@@ -311,7 +305,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="footer-logo">Luxury Travel</div>
-    <p>Trải nghiệm – Đẳng cấp – Riêng tư</p>
+    <p>Trải nghiệm – Riêng tư – Đẳng cấp</p>
 </footer>
 
 </body>
