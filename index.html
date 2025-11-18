@@ -90,6 +90,80 @@
       opacity: 0.9;
     }
 
+    /* ========== FADE ANIMATION ========== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .8s ease-out, transform .8s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .9s ease, transform .9s ease;
+    }
+    .fade-slide.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-zoom {
+      opacity: 0;
+      transform: scale(.95);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .fade-zoom.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ========== STAGGER LINES ========== */
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .stagger.show > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger.show > *:nth-child(1){transition-delay:.1s;}
+    .stagger.show > *:nth-child(2){transition-delay:.2s;}
+    .stagger.show > *:nth-child(3){transition-delay:.3s;}
+    .stagger.show > *:nth-child(4){transition-delay:.4s;}
+    .stagger.show > *:nth-child(5){transition-delay:.5s;}
+
+    /* ========== PREMIUM GLOW ========== */
+    .glow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+      transform: skewX(-20deg);
+      animation: shine 2.8s infinite ease-in-out;
+    }
+
+    @keyframes shine {
+      0% { left: -120%; }
+      70% { left: 130%; }
+      100% { left: 130%; }
+    }
+
+    /* HERO BENEFITS */
     .hero-benefits {
       display: grid;
       grid-template-columns: 1fr;
@@ -158,6 +232,7 @@
       font-size: 14px;
     }
 
+    /* BUTTON BOOK – WITH LOADING */
     .btn-book {
       background: var(--pv-blue);
       color: white;
@@ -170,7 +245,43 @@
       margin-top: 6px;
     }
 
-    /* ================= PV BOX ================= */
+    .btn-book.loading {
+      opacity: .7;
+      pointer-events: none;
+      position: relative;
+    }
+
+    .btn-book.loading::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 3px solid white;
+      border-top-color: transparent;
+      border-radius: 50%;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    .btn-book.success {
+      background: #28d17c !important;
+      animation: pulse .5s ease-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* ================= PV-BOX ================= */
     .pv-box {
       margin-top: 30px;
       background: linear-gradient(90deg, var(--pv-yellow), var(--pv-blue));
@@ -226,7 +337,7 @@
       margin-top: 40px;
     }
 
-    /* ================= FLOAT BUTTON ================= */
+    /* Floating button */
     .call-now {
       position: fixed;
       bottom: 18px;
@@ -242,10 +353,46 @@
       z-index: 99999;
     }
 
+    /* ===== POPUP ===== */
+    .thank-popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999999;
+    }
+
+    .thank-box {
+      background: white;
+      padding: 26px;
+      border-radius: 18px;
+      text-align: center;
+      width: 88%;
+      max-width: 360px;
+      animation: popupFade .4s ease;
+    }
+
+    .thank-box button {
+      margin-top: 16px;
+      background: var(--pv-yellow);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 700;
+    }
+
+    @keyframes popupFade {
+      from { transform: scale(.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
     @media (min-width: 768px) {
       .hero-benefits { grid-template-columns: repeat(2,1fr); }
       .feature-grid { grid-template-columns: repeat(2,1fr); }
     }
+
   </style>
 </head>
 
@@ -262,26 +409,26 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <h1>Tư vấn vay vốn nhanh – lãi suất cạnh tranh – bảo mật tuyệt đối</h1>
-    <p>
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <h1 class="fade-in">Tư vấn vay vốn nhanh – lãi suất cạnh tranh – bảo mật tuyệt đối</h1>
+    <p class="fade-in">
       Tối ưu dòng tiền cho cá nhân & doanh nghiệp với các gói vay mua nhà, mua ô tô,
       kinh doanh, tiêu dùng… linh hoạt theo nhu cầu từng khách hàng.
     </p>
 
-    <div class="hero-benefits">
+    <div class="hero-benefits stagger">
       <div>✔ Phê duyệt nhanh</div>
       <div>✔ Lãi suất từ 0.6%/tháng</div>
       <div>✔ Hạn mức tới 5 tỷ</div>
       <div>✔ Hỗ trợ hồ sơ 1:1</div>
     </div>
 
-    <button class="btn-main" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+    <button class="btn-main glow fade-in" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
       Đăng ký tư vấn miễn phí
     </button>
 
-    <div class="hero-card">
+    <div class="hero-card fade-slide">
       <h3 style="color:#ffc423;margin:0 0 10px;">Hồ sơ cần chuẩn bị</h3>
       <div>- CMND/CCCD, hộ khẩu/KT3</div>
       <div>- Sao kê thu nhập / bảng lương / HĐLĐ</div>
@@ -290,32 +437,32 @@
   </section>
 
   <!-- BOOKING -->
-  <section id="booking">
+  <section id="booking" class="fade-in">
     <div class="booking-wrapper">
       <h2>Đăng ký tư vấn vay vốn</h2>
 
       <form id="loanForm">
-        <div class="form-field">
+        <div class="form-field fade-in">
           <label>Họ và tên</label>
           <input id="name" required />
         </div>
 
-        <div class="form-field">
+        <div class="form-field fade-in">
           <label>Số điện thoại</label>
           <input id="phone" required />
         </div>
 
-        <div class="form-field">
+        <div class="form-field fade-in">
           <label>Email (nếu có)</label>
           <input id="email" />
         </div>
 
-        <div class="form-field">
+        <div class="form-field fade-in">
           <label>Số tiền vay</label>
           <input id="amount" required />
         </div>
 
-        <div class="form-field">
+        <div class="form-field fade-in">
           <label>Thời hạn vay</label>
           <select id="duration">
             <option>12 tháng</option><option>24 tháng</option>
@@ -323,7 +470,7 @@
           </select>
         </div>
 
-        <div class="form-field">
+        <div class="form-field fade-in">
           <label>Loại vay</label>
           <select id="type">
             <option>Vay tín chấp</option><option>Vay thế chấp</option>
@@ -332,26 +479,28 @@
           </select>
         </div>
 
-        <div class="form-field">
+        <div class="form-field fade-in">
           <label>Mô tả nhu cầu</label>
           <textarea id="note"></textarea>
         </div>
 
-        <button type="submit" class="btn-book">Gửi yêu cầu</button>
+        <button type="submit" class="btn-book glow fade-in">Gửi yêu cầu</button>
       </form>
 
-      <div class="pv-box">
+      <!-- PV BOX -->
+      <div class="pv-box fade-zoom">
         <h3 style="margin:0 0 10px;">PVcomBank – Uy tín · Minh bạch · Tận tâm</h3>
 
-        <div class="feature-grid">
-          <div class="feature-item">Duyệt hồ sơ nhanh</div>
-          <div class="feature-item">Lãi suất cạnh tranh</div>
-          <div class="feature-item">Hạn mức cao</div>
-          <div class="feature-item">Chuyên viên hỗ trợ 1:1</div>
+        <div class="feature-grid stagger">
+          <div class="feature-item glow">Duyệt hồ sơ nhanh</div>
+          <div class="feature-item glow">Lãi suất cạnh tranh</div>
+          <div class="feature-item glow">Hạn mức cao</div>
+          <div class="feature-item glow">Chuyên viên hỗ trợ 1:1</div>
         </div>
       </div>
 
-      <div class="advisor-box" id="advisor">
+      <!-- ADVISOR -->
+      <div class="advisor-box fade-slide" id="advisor">
         <h3>Chuyên viên phụ trách hồ sơ</h3>
         <p><strong>Đoàn Thị Yến Nhi – PVcomBank</strong></p>
         <p>Hơn 6 năm kinh nghiệm tư vấn vay vốn cá nhân và doanh nghiệp.</p>
@@ -359,16 +508,25 @@
 
         <button onclick="location.href='tel:0931776707'">📞 Gọi ngay</button>
       </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © 2025 – PVcomBank Lending Page
   </footer>
 
-  <!-- Nút gọi nhanh -->
-  <a class="call-now" href="tel:0931776707">📞 0931.776.707</a>
+  <a class="call-now glow" href="tel:0931776707">📞 0931.776.707</a>
+
+  <!-- POPUP -->
+  <div id="thankPopup" class="thank-popup">
+    <div class="thank-box fade-zoom">
+      <h3>🎉 Gửi yêu cầu thành công!</h3>
+      <p>Cảm ơn Quý khách đã tin tưởng PVcomBank.</p>
+      <p>Chuyên viên <b>Đoàn Thị Yến Nhi</b> sẽ liên hệ trong vài phút.</p>
+      <button onclick="closeThankPopup()">Đóng</button>
+    </div>
+  </div>
 
   <!-- SCRIPT -->
   <script>
@@ -377,10 +535,35 @@
       header.classList.toggle("scrolled", window.scrollY > 10);
     });
 
-    const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzV2wGJupEP3h6yAH9JC4_X95Tzh_rexkh6TCLIjXle16HiQH1FegHVbaS-YsUJNXiM/exec";
+    // Fade-in observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".fade-in, .fade-slide, .fade-zoom, .stagger")
+      .forEach(el => observer.observe(el));
+
+    // Popup
+    function openThankPopup() {
+      document.getElementById("thankPopup").style.display = "flex";
+    }
+    function closeThankPopup() {
+      document.getElementById("thankPopup").style.display = "none";
+    }
+
+    // Webhook gửi email
+    const WEBHOOK_URL =
+      "https://script.google.com/macros/s/AKfycbzV2wGJupEP3h6yAH9JC4_X95Tzh_rexkh6TCLIjXle16HiQH1FegHVbaS-YsUJNXiM/exec";
+
+    const btn = document.querySelector(".btn-book");
 
     document.getElementById("loanForm").addEventListener("submit", function(e) {
       e.preventDefault();
+
+      btn.classList.add("loading");
+      btn.textContent = "Đang gửi...";
 
       const payload = {
         name: name.value,
@@ -400,7 +583,16 @@
         body: JSON.stringify(payload)
       });
 
-      alert("✔ Đã gửi yêu cầu! Chuyên viên sẽ liên hệ trong vài phút.");
+      setTimeout(() => {
+        btn.classList.remove("loading");
+        btn.classList.add("success");
+        btn.textContent = "Đã gửi thành công!";
+
+        openThankPopup();
+
+        setTimeout(() => btn.classList.remove("success"), 1600);
+      }, 1300);
+
       this.reset();
     });
   </script>
