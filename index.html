@@ -6,13 +6,10 @@
   <title>Hỗ trợ vay vốn - PVcomBank</title>
 
   <!-- SEO -->
-  <meta name="description" content="Tư vấn vay vốn PVcomBank - Duyệt nhanh, lãi suất cạnh tranh, bảo mật thông tin tuyệt đối." />
+  <meta name="description" content="Tư vấn vay vốn PVcomBank - Duyệt nhanh, lãi suất cạnh tranh, bảo mật tuyệt đối." />
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <!-- LIBRARY: SheetJS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
   <style>
     :root {
@@ -23,10 +20,7 @@
       --white: #fff;
     }
 
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
     body {
       margin: 0;
@@ -58,13 +52,10 @@
       align-items: center;
     }
 
-    .pv-logo { height: 26px; }
-
     .lux-logo-text {
       color: white;
       font-size: 14px;
       font-weight: 600;
-      margin-left: 8px;
     }
 
     .lux-nav a {
@@ -76,7 +67,6 @@
     }
 
     /* ================= HERO ================= */
-
     .hero {
       margin-top: 60px;
       background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
@@ -150,10 +140,7 @@
       margin-bottom: 10px;
     }
 
-    .form-field {
-      margin-bottom: 14px;
-    }
-
+    .form-field { margin-bottom: 14px; }
     .form-field label {
       display: block;
       font-size: 13px;
@@ -183,8 +170,7 @@
       margin-top: 6px;
     }
 
-    /* ================= PV-BOX ================= */
-
+    /* ================= PV BOX ================= */
     .pv-box {
       margin-top: 30px;
       background: linear-gradient(90deg, var(--pv-yellow), var(--pv-blue));
@@ -211,7 +197,6 @@
     }
 
     /* ================= ADVISOR ================= */
-
     .advisor-box {
       background: var(--dark-soft);
       padding: 22px;
@@ -241,7 +226,7 @@
       margin-top: 40px;
     }
 
-    /* ================= FLOATING CALL ================= */
+    /* ================= FLOAT BUTTON ================= */
     .call-now {
       position: fixed;
       bottom: 18px;
@@ -257,7 +242,6 @@
       z-index: 99999;
     }
 
-    /* Tablet/Desktop responsive */
     @media (min-width: 768px) {
       .hero-benefits { grid-template-columns: repeat(2,1fr); }
       .feature-grid { grid-template-columns: repeat(2,1fr); }
@@ -270,9 +254,7 @@
   <!-- HEADER -->
   <header class="lux-header" id="luxHeader">
     <div class="lux-header-inner">
-      <div style="display:flex;align-items:center;">
-        <div class="lux-logo-text">PVcomBank – Hỗ trợ vay vốn</div>
-      </div>
+      <div class="lux-logo-text">PVcomBank – Hỗ trợ vay vốn</div>
       <nav class="lux-nav">
         <a href="#booking">Đăng ký vay</a>
         <a href="#advisor">Liên hệ</a>
@@ -280,7 +262,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <h1>Tư vấn vay vốn nhanh – lãi suất cạnh tranh – bảo mật tuyệt đối</h1>
     <p>
@@ -310,7 +292,6 @@
   <!-- BOOKING -->
   <section id="booking">
     <div class="booking-wrapper">
-
       <h2>Đăng ký tư vấn vay vốn</h2>
 
       <form id="loanForm">
@@ -359,7 +340,6 @@
         <button type="submit" class="btn-book">Gửi yêu cầu</button>
       </form>
 
-      <!-- PV BOX -->
       <div class="pv-box">
         <h3 style="margin:0 0 10px;">PVcomBank – Uy tín · Minh bạch · Tận tâm</h3>
 
@@ -371,7 +351,6 @@
         </div>
       </div>
 
-      <!-- ADVISOR -->
       <div class="advisor-box" id="advisor">
         <h3>Chuyên viên phụ trách hồ sơ</h3>
         <p><strong>Đoàn Thị Yến Nhi – PVcomBank</strong></p>
@@ -380,26 +359,24 @@
 
         <button onclick="location.href='tel:0931776707'">📞 Gọi ngay</button>
       </div>
-
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 – PVcomBank Lending Page
   </footer>
 
-  <!-- Floating call -->
+  <!-- Nút gọi nhanh -->
   <a class="call-now" href="tel:0931776707">📞 0931.776.707</a>
 
   <!-- SCRIPT -->
   <script>
-    // Header scroll
     const header = document.getElementById("luxHeader");
     window.addEventListener("scroll", () => {
       header.classList.toggle("scrolled", window.scrollY > 10);
     });
 
-    // Webhook Apps Script
     const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzV2wGJupEP3h6yAH9JC4_X95Tzh_rexkh6TCLIjXle16HiQH1FegHVbaS-YsUJNXiM/exec";
 
     document.getElementById("loanForm").addEventListener("submit", function(e) {
@@ -416,21 +393,12 @@
         time: new Date().toLocaleString("vi-VN")
       };
 
-      // Gửi email qua Apps Script
-      if (WEBHOOK_URL.startsWith("http")) {
-        fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          mode: "no-cors",
-          body: JSON.stringify(payload)
-        });
-      }
-
-      // Xuất Excel
-      const wb = XLSX.utils.book_new();
-      const ws = XLSX.utils.json_to_sheet([payload]);
-      XLSX.utils.book_append_sheet(wb, ws, "ThongTinVay");
-      XLSX.writeFile(wb, "yeu_cau_vay_von.xlsx");
+      fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
+        body: JSON.stringify(payload)
+      });
 
       alert("✔ Đã gửi yêu cầu! Chuyên viên sẽ liên hệ trong vài phút.");
       this.reset();
