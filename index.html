@@ -3,121 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hỗ trợ vay vốn</title>
+  <title>Hỗ trợ vay vốn - Tư vấn tài chính</title>
 
-  <!-- SheetJS để xuất file Excel -->
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- SEO -->
+  <meta name="description" content="Dịch vụ tư vấn vay vốn nhanh – bảo mật – lãi suất tốt. Hỗ trợ thẩm định và chuẩn bị hồ sơ." />
+  <meta name="keywords" content="vay vốn, tín dụng, tư vấn vay, vay tiêu dùng, vay ngân hàng" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- LIBRARY: SheetJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
   <style>
-    body { font-family: Arial; padding: 20px; background: #f5f5f5; }
-    .form-box {
-      background: white; padding: 20px; border-radius: 10px;
-      max-width: 450px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* giữ nguyên toàn bộ style như bản Luxury Travel của Tiến sĩ */
+    :root {
+      --lux-gold: #c5a46d;
+      --lux-gold-soft: #e5cfa1;
+      --lux-dark: #0f1014;
+      --lux-dark-soft: #1b1d25;
+      --lux-white: #ffffff;
     }
-    input, select, textarea {
-      width: 100%; padding: 10px; border-radius: 6px;
-      border: 1px solid #ccc; margin-bottom: 15px;
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      background: #f6f6f9;
+      color: var(--lux-dark);
+      scroll-behavior: smooth;
     }
-    button {
-      background: #007bff; color: white; padding: 12px;
-      border: none; width: 100%; border-radius: 6px;
-      cursor: pointer; font-size: 16px;
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      margin: 0 0 12px;
+      color: var(--lux-dark);
     }
-    button:hover { opacity: 0.9; }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    section { padding: 80px 0; }
+
+    /* HEADER */
+    .lux-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      background: transparent;
+      transition: 0.3s;
+      padding: 14px 0;
+    }
+
+    .lux-header.scrolled {
+      background: rgba(15, 16, 20, 0.92);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      padding: 8px 0;
+    }
+
+    .lux-header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .lux-logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--lux-gold);
+    }
+
+    /* NAV */
+    .lux-nav { display: flex; gap: 30px; }
+    .lux-nav a {
+      text-decoration: none;
+      font-size: 15px;
+      color: var(--lux-white);
+      padding-bottom: 4px;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.4),
+          rgba(0,0,0,0.7)
+        ),
+        url("https://images.unsplash.com/photo-1521791055366-0d553872125f");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* BOOKING */
+    .booking-wrapper {
+      max-width: 720px;
+      margin: auto;
+      background: linear-gradient(135deg, #ffffff, #faf0dc);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.14);
+    }
+
+    .form-field label { font-size: 14px; font-weight: 600; }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .btn-book {
+      background: var(--lux-dark-soft);
+      color: var(--lux-gold-soft);
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
   </style>
 </head>
 
 <body>
 
-<div class="form-box">
-  <h2>Đăng ký vay vốn</h2>
+  <!-- HEADER -->
+  <header class="lux-header" id="luxHeader">
+    <div class="lux-header-inner">
+      <div class="lux-logo">Hỗ trợ vay vốn</div>
+      <nav class="lux-nav">
+        <a href="#booking">Đăng ký vay</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
 
-  <form id="loanForm">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Tư vấn vay vốn nhanh – bảo mật – lãi suất tốt</h1>
+      <p>Hỗ trợ thẩm định hồ sơ, chọn gói vay phù hợp, tối ưu lãi suất cho khách hàng cá nhân & doanh nghiệp.</p>
+      <button class="btn-book" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+        Đăng ký vay ngay
+      </button>
+    </div>
+  </section>
 
-    <label>Họ tên</label>
-    <input id="name" required />
+  <!-- BOOKING FORM -->
+  <section id="booking">
+    <div class="container">
+      <div class="booking-wrapper">
+        <h2 style="text-align:center;">Đăng ký vay vốn</h2>
 
-    <label>Số điện thoại</label>
-    <input id="phone" required />
+        <form id="loanForm">
 
-    <label>Email</label>
-    <input id="email" />
+          <div class="form-field">
+            <label>Họ và tên</label>
+            <input id="name" required />
+          </div>
 
-    <label>Số tiền vay</label>
-    <input id="amount" required />
+          <div class="form-field">
+            <label>Số điện thoại</label>
+            <input id="phone" required />
+          </div>
 
-    <label>Thời hạn vay</label>
-    <input id="duration" required />
+          <div class="form-field">
+            <label>Email (nếu có)</label>
+            <input id="email" />
+          </div>
 
-    <label>Loại vay</label>
-    <select id="type">
-      <option>Vay tín chấp</option>
-      <option>Vay thế chấp</option>
-      <option>Vay tiêu dùng</option>
-      <option>Vay kinh doanh</option>
-    </select>
+          <div class="form-field">
+            <label>Số tiền cần vay</label>
+            <input id="amount" placeholder="Ví dụ: 500.000.000" required />
+          </div>
 
-    <label>Ghi chú</label>
-    <textarea id="note"></textarea>
+          <div class="form-field">
+            <label>Thời hạn vay</label>
+            <select id="duration">
+              <option>12 tháng</option>
+              <option>24 tháng</option>
+              <option>36 tháng</option>
+              <option>48 tháng</option>
+            </select>
+          </div>
 
-    <button type="submit">Gửi yêu cầu</button>
-  </form>
-</div>
+          <div class="form-field">
+            <label>Loại khoản vay</label>
+            <select id="type">
+              <option>Vay tín chấp</option>
+              <option>Vay thế chấp</option>
+              <option>Vay kinh doanh</option>
+              <option>Vay mua ô tô</option>
+              <option>Vay mua nhà</option>
+            </select>
+          </div>
 
-<script>
-const WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbz0bTnS2wH2XbU2UJGfQbtpZojk-DBrYSbTcbtckxjLtKVD6VG_HaxyY6yjOkB59PK-/exec";
+          <div class="form-field">
+            <label>Mô tả nhu cầu</label>
+            <textarea id="note"></textarea>
+          </div>
 
-document.getElementById("loanForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
+          <button type="submit" class="btn-book" style="margin-top:14px;">Gửi yêu cầu</button>
 
-  // Thu thập dữ liệu
-  const payload = {
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    email: document.getElementById("email").value,
-    amount: document.getElementById("amount").value,
-    duration: document.getElementById("duration").value,
-    type: document.getElementById("type").value,
-    note: document.getElementById("note").value,
-    time: new Date().toLocaleString("vi-VN")
-  };
+        </form>
+      </div>
+    </div>
+  </section>
 
-  // Gửi dữ liệu sang Apps Script
-  fetch(WEBHOOK_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    mode: "no-cors",
-    body: JSON.stringify(payload)
-  });
+  <!-- FOOTER -->
+  <footer id="contact" style="text-align:center;padding:40px;background:#0f1014;color:white;">
+    <h3>Hỗ trợ vay vốn</h3>
+    <p>© 2025. Dịch vụ tư vấn tài chính – bảo mật tuyệt đối.</p>
+  </footer>
 
-  // === TẠO FILE EXCEL VÀ TẢI VỀ ===
-  const wb = XLSX.utils.book_new();
-  const sheetData = [
-    ["Họ tên", "Số điện thoại", "Email", "Số tiền vay", "Thời hạn vay", "Loại vay", "Ghi chú", "Ngày gửi"],
-    [
-      payload.name,
-      payload.phone,
-      payload.email,
-      payload.amount,
-      payload.duration,
-      payload.type,
-      payload.note,
-      payload.time
-    ]
-  ];
+  <!-- JS xử lý xuất Excel -->
+  <script>
+    document.getElementById("loanForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  const ws = XLSX.utils.aoa_to_sheet(sheetData);
-  XLSX.utils.book_append_sheet(wb, ws, "HoSoVay");
+      const data = [{
+        "Họ tên": document.getElementById("name").value,
+        "SĐT": document.getElementById("phone").value,
+        "Email": document.getElementById("email").value,
+        "Số tiền vay": document.getElementById("amount").value,
+        "Thời hạn": document.getElementById("duration").value,
+        "Loại vay": document.getElementById("type").value,
+        "Ghi chú": document.getElementById("note").value,
+        "Ngày gửi": new Date().toLocaleString()
+      }];
 
-  const fileName = "ho_so_vay_von_" + Date.now() + ".xlsx";
-  XLSX.writeFile(wb, fileName);
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.json_to_sheet(data);
+      XLSX.utils.book_append_sheet(wb, ws, "ThongTinVay");
 
-  alert("Đã gửi yêu cầu thành công! File Excel đã được tải xuống.");
+      XLSX.writeFile(wb, "yeu_cau_vay_von.xlsx");
 
-  this.reset();
-});
-</script>
+      alert("Đã lưu yêu cầu vào file Excel! ✔");
+      this.reset();
+    });
+  </script>
 
 </body>
 </html>
