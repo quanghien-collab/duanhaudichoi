@@ -8,9 +8,6 @@
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- LIBRARY: SheetJS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
   <style>
     :root {
       --lux-gold: #c5a46d;
@@ -122,11 +119,6 @@
       animation:fadeIn 0.3s ease;
     }
     @keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1;} }
-    .popup-btn{
-      padding:12px 24px; border-radius:50px;
-      background:var(--lux-gold); border:none;
-      font-weight:700; cursor:pointer;
-    }
 
     /* CALL NOW */
     .call-now{
@@ -270,23 +262,24 @@ document.getElementById("loanForm").addEventListener("submit", async function(e)
     time: new Date().toLocaleString()
   };
 
-  // Gửi lên Google Sheet qua Webhook
-  await fetch(WEBHOOK_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
+  try {
+    await fetch(WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
 
-  // Xuất Excel
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet([payload]), "ThongTinVay");
-  XLSX.writeFile(wb, "yeu_cau_vay_von.xlsx");
+    alert("Gửi yêu cầu thành công! Vui lòng chú ý điện thoại để được tư vấn");
+    this.reset();
 
-  alert("Gửi yêu cầu thành công!");
-  this.reset();
+  } catch (error) {
+    alert("Có lỗi khi gửi dữ liệu. Lucky sẽ kiểm tra cho Tiến sĩ ngay!");
+    console.error(error);
+  }
 });
 
+// POPUP HANDLER
 function openPopup(){ document.getElementById("popup").style.display="flex"; }
 function closePopup(){ document.getElementById("popup").style.display="none"; }
 function scrollToForm(){
@@ -298,4 +291,3 @@ setTimeout(openPopup, 1200);
 
 </body>
 </html>
-
