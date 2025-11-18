@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hỗ trợ vay vốn - Tư vấn tài chính PVcomBank</title>
+  <title>Hỗ trợ vay vốn - PVcomBank</title>
 
   <!-- SEO -->
-  <meta name="description" content="Dịch vụ tư vấn vay vốn cá nhân & doanh nghiệp – thẩm định nhanh – lãi suất cạnh tranh - PVcomBank." />
-  <meta name="keywords" content="vay vốn, vay ngân hàng, PVcomBank, vay mua nhà, vay mua xe, vay kinh doanh, vay tiêu dùng" />
+  <meta name="description" content="Tư vấn vay vốn PVcomBank - Duyệt nhanh, lãi suất cạnh tranh, bảo mật thông tin tuyệt đối." />
+  <meta name="keywords" content="PVcomBank, vay vốn, vay mua nhà, vay mua ô tô, vay kinh doanh, vay tiêu dùng" />
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- SheetJS -->
+  <!-- LIBRARY: SheetJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
   <style>
@@ -26,6 +26,8 @@
       --pv-blue: #005bbb;
     }
 
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: "Montserrat", sans-serif;
@@ -34,245 +36,445 @@
       scroll-behavior: smooth;
     }
 
-    h1,h2,h3 {
+    h1, h2, h3 {
       font-family: "Playfair Display", serif;
       margin: 0 0 12px;
     }
 
-    .container { max-width: 1200px; margin:auto; padding:0 20px; }
-    section { padding:80px 0; }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    section { padding: 80px 0; }
 
     /* HEADER */
     .lux-header {
       position: fixed;
-      top:0; left:0; width:100%;
-      padding:14px 0;
-      z-index:9999;
-      transition:0.3s;
+      top: 0; left: 0; width: 100%;
+      z-index: 9999;
+      background: transparent;
+      transition: 0.3s;
+      padding: 10px 0;
     }
-    .lux-header.scrolled {
-      background:rgba(0,0,0,0.85);
-      padding:8px 0;
-      box-shadow:0 2px 20px rgba(0,0,0,0.3);
-    }
-    .lux-header-inner {
-      max-width:1200px; margin:auto; padding:0 20px;
-      display:flex; justify-content:space-between; align-items:center;
-    }
-    .lux-logo { font-size:26px; font-weight:700; color:var(--lux-gold); }
 
+    .lux-header.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      padding: 6px 0;
+    }
+
+    .lux-header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .lux-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--lux-white);
+    }
+
+    .pv-logo {
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .lux-logo-text {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .lux-nav { display: flex; gap: 30px; }
     .lux-nav a {
-      color:white; text-decoration:none; margin-left:30px; font-weight:500;
+      text-decoration: none;
+      font-size: 15px;
+      color: var(--lux-white);
+      padding-bottom: 4px;
+      font-weight: 500;
     }
 
     /* HERO */
     .hero {
-      height:100vh;
-      background-image:linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.75)),
+      height: 100vh;
+      background-image: linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.3),
+          rgba(0,0,0,0.75)
+        ),
         url("https://images.unsplash.com/photo-1521791055366-0d553872125f");
-      background-size:cover; background-position:center;
-      display:flex; align-items:center; color:white;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      color: white;
     }
-    .hero-inner { max-width:1200px; margin:auto; padding:0 20px; }
 
-    .hero h1 { font-size:44px; }
-    .hero p { font-size:18px; max-width:600px; }
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
 
-    /* FORM */
+    .hero-tag {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      background: rgba(0,0,0,0.5);
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 { font-size: 40px; }
+    .hero p { font-size: 16px; max-width: 540px; }
+
+    .hero-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+      font-size: 13px;
+    }
+
+    .hero-benefits div {
+      background: rgba(0,0,0,0.45);
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+
+    .hero-card {
+      background: rgba(0,0,0,0.65);
+      padding: 22px;
+      border-radius: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    }
+
+    .hero-card h3 {
+      color: var(--pv-yellow);
+      margin-bottom: 10px;
+    }
+
+    .btn-main {
+      background: var(--pv-yellow);
+      color: var(--lux-dark);
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      margin-top: 18px;
+    }
+
+    /* BOOKING */
     .booking-wrapper {
-      max-width:720px; margin:auto;
-      background:linear-gradient(135deg,#ffffff,#f8efdd);
-      padding:28px; border-radius:18px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.12);
+      max-width: 780px;
+      margin: auto;
+      background: linear-gradient(135deg, #ffffff, #faf0dc);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.14);
     }
 
+    .form-field label { font-size: 14px; font-weight: 600; }
     .form-field input, .form-field select, .form-field textarea {
-      width:100%; padding:12px; border-radius:12px;
-      border:1px solid #ccc; font-size:14px; margin-bottom:15px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      margin-top: 4px;
     }
 
     .btn-book {
-      padding:14px 26px; border:none; cursor:pointer;
-      border-radius:999px;
-      background:var(--lux-dark-soft); color:var(--lux-gold-soft);
-      font-weight:700;
+      background: var(--lux-dark-soft);
+      color: var(--lux-gold-soft);
+      padding: 12px 26px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
     }
 
-    /* PVCOMBANK FEATURE BOX */
     .pv-box {
-      background:linear-gradient(90deg,var(--pv-yellow),var(--pv-blue));
-      color:white; padding:40px; border-radius:18px;
-      margin-top:40px; text-align:center;
-      box-shadow:0 6px 20px rgba(0,0,0,0.15);
-    }
-    .feature-grid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:25px; margin-top:25px;
-    }
-    .feature-item {
-      background:white; color:black; padding:20px; border-radius:16px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.12);
-      font-weight:600; text-align:center;
+      background: linear-gradient(90deg, var(--pv-yellow), var(--pv-blue));
+      color: white;
+      padding: 40px;
+      border-radius: 18px;
+      margin-top: 40px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
-    /* CONTACT BOX */
-    .advisor-box {
-      background:var(--lux-dark-soft);
-      padding:26px; border-radius:18px; margin-top:40px;
-      color:var(--lux-gold-soft); text-align:center;
-      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
+
+    .feature-item {
+      background: white;
+      color: var(--lux-dark);
+      padding: 18px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+
+    .advisor-box {
+      background: var(--lux-dark-soft);
+      padding: 26px;
+      border-radius: 18px;
+      margin-top: 40px;
+      color: var(--lux-gold-soft);
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
     .advisor-box button {
-      background:var(--lux-gold); color:var(--lux-dark);
-      padding:12px 24px; border:none; border-radius:50px;
-      font-weight:700; cursor:pointer; margin-top:12px;
+      background: var(--pv-yellow);
+      color: var(--lux-dark);
+      padding: 12px 24px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      background: #0f1014;
+      color: white;
+      font-size: 13px;
+    }
+
+    /* Floating call button */
+    .call-now {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--pv-yellow);
+      color: var(--lux-dark);
+      padding: 14px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      z-index: 9999;
     }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="lux-header" id="luxHeader">
-  <div class="lux-header-inner">
-    <div class="lux-logo">Hỗ trợ vay vốn</div>
-    <nav class="lux-nav">
-      <a href="#booking">Đăng ký vay</a>
-      <a href="#advisor">Chuyên viên</a>
-    </nav>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header class="lux-header" id="luxHeader">
+    <div class="lux-header-inner">
+      <div class="lux-logo-wrap">
+        <!-- Logo PVcomBank -->
+        <img class="pv-logo" src="https://www.pvcombank.com.vn/sites/default/files/styles/header_logo/public/logo-pvcombank_2.png" alt="PVcomBank Logo" />
+        <div class="lux-logo-text">Hỗ trợ vay vốn PVcomBank</div>
+      </div>
+      <nav class="lux-nav">
+        <a href="#booking">Đăng ký vay</a>
+        <a href="#advisor">Chuyên viên</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <h1>Tư vấn vay vốn nhanh – an toàn – lãi suất cạnh tranh</h1>
-    <p>PVcomBank cam kết mang đến giải pháp tài chính tối ưu, quy trình minh bạch, bảo mật tuyệt đối và tốc độ xử lý nhanh cho mọi khách hàng cá nhân & doanh nghiệp.</p>
-    <button class="btn-book" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Đăng ký vay ngay</button>
-  </div>
-</section>
-
-<!-- BOOKING FORM -->
-<section id="booking">
-  <div class="container">
-    <div class="booking-wrapper">
-      <h2 style="text-align:center;">Đăng ký tư vấn vay vốn</h2>
-
-      <p style="text-align:center; font-size:15px; margin-bottom:25px;">
-        Điền thông tin bên dưới, chuyên viên PVcomBank sẽ liên hệ tư vấn trong vòng <b>5 – 10 phút</b>.
-      </p>
-
-      <form id="loanForm">
-
-        <div class="form-field">
-          <label>Họ và tên</label>
-          <input id="name" required />
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">PVcomBank · Giải pháp tài chính đồng hành cùng bạn</div>
+        <h1>Tư vấn vay vốn nhanh – lãi suất cạnh tranh – bảo mật tuyệt đối</h1>
+        <p>
+          Tối ưu dòng tiền cho cá nhân & doanh nghiệp với các gói vay mua nhà, mua ô tô,
+          kinh doanh, tiêu dùng… được thiết kế linh hoạt theo nhu cầu từng khách hàng.
+        </p>
+        <div class="hero-benefits">
+          <div>✔ Phê duyệt nhanh, quy trình rõ ràng</div>
+          <div>✔ Lãi suất chỉ từ 0.6%/tháng</div>
+          <div>✔ Hạn mức lên đến 5 tỷ đồng</div>
+          <div>✔ Hỗ trợ hồ sơ 1:1, bảo mật thông tin</div>
         </div>
-
-        <div class="form-field">
-          <label>Số điện thoại</label>
-          <input id="phone" required />
-        </div>
-
-        <div class="form-field">
-          <label>Email (nếu có)</label>
-          <input id="email" />
-        </div>
-
-        <div class="form-field">
-          <label>Số tiền cần vay</label>
-          <input id="amount" placeholder="Ví dụ: 300.000.000 – 5.000.000.000" required />
-        </div>
-
-        <div class="form-field">
-          <label>Thời hạn vay</label>
-          <select id="duration">
-            <option>12 tháng</option>
-            <option>24 tháng</option>
-            <option>36 tháng</option>
-            <option>48 tháng</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label>Loại khoản vay</label>
-          <select id="type">
-            <option>Vay tín chấp</option>
-            <option>Vay thế chấp</option>
-            <option>Vay kinh doanh</option>
-            <option>Vay mua ô tô</option>
-            <option>Vay mua nhà</option>
-          </select>
-        </div>
-
-        <div class="form-field">
-          <label>Mô tả nhu cầu</label>
-          <textarea id="note"></textarea>
-        </div>
-
-        <button type="submit" class="btn-book">Gửi yêu cầu</button>
-
-      </form>
-
-      <!-- PVcomBank banner -->
-      <div class="pv-box">
-        <h2>PVcomBank – Uy tín | Minh bạch | Lãi suất cạnh tranh</h2>
-        <div class="feature-grid">
-          <div class="feature-item">Duyệt hồ sơ nhanh trong ngày</div>
-          <div class="feature-item">Lãi suất chỉ từ 0.6%/tháng</div>
-          <div class="feature-item">Hạn mức vay đến 5 tỷ</div>
-          <div class="feature-item">Hỗ trợ xuyên suốt – bảo mật tuyệt đối</div>
-        </div>
+        <button class="btn-main" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+          Đăng ký tư vấn miễn phí
+        </button>
       </div>
 
+      <div class="hero-card">
+        <h3>Hồ sơ cơ bản cần chuẩn bị</h3>
+        <p>- CMND/CCCD, hộ khẩu/KT3</p>
+        <p>- Chứng minh thu nhập: bảng lương, HĐLĐ hoặc sao kê</p>
+        <p>- Giấy tờ tài sản bảo đảm (nếu vay thế chấp)</p>
+        <p style="margin-top:10px;font-size:13px;">
+          Chỉ cần để lại thông tin, chuyên viên sẽ hướng dẫn chi tiết từng bước cho Tiến sĩ.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ADVISOR BOX -->
-<section id="advisor">
-  <div class="container">
-    <div class="advisor-box">
-      <h3>Chuyên viên tư vấn trực tiếp</h3>
-      <p><strong>Đoàn Thị Yến Nhi – PVcomBank</strong></p>
-      <p>Chuyên viên tín dụng với hơn 6 năm kinh nghiệm hỗ trợ khách hàng vay vốn cá nhân & doanh nghiệp.</p>
-      <p>SĐT hỗ trợ: <strong>0931.776.707</strong></p>
-      <button onclick="location.href='tel:0931776707'">📞 Gọi ngay</button>
+  <!-- BOOKING FORM -->
+  <section id="booking">
+    <div class="container">
+      <div class="booking-wrapper">
+        <h2 style="text-align:center;">Đăng ký tư vấn vay vốn PVcomBank</h2>
+        <p style="text-align:center;font-size:14px;margin-bottom:24px;">
+          Điền thông tin bên dưới, chuyên viên sẽ gọi lại trong vòng <b>5 – 10 phút làm việc</b>.
+        </p>
+
+        <form id="loanForm">
+          <div class="form-field">
+            <label>Họ và tên</label>
+            <input id="name" required />
+          </div>
+
+          <div class="form-field">
+            <label>Số điện thoại</label>
+            <input id="phone" required />
+          </div>
+
+          <div class="form-field">
+            <label>Email (nếu có)</label>
+            <input id="email" />
+          </div>
+
+          <div class="form-field">
+            <label>Số tiền cần vay</label>
+            <input id="amount" placeholder="Ví dụ: 300.000.000 – 5.000.000.000" required />
+          </div>
+
+          <div class="form-field">
+            <label>Thời hạn vay</label>
+            <select id="duration">
+              <option>12 tháng</option>
+              <option>24 tháng</option>
+              <option>36 tháng</option>
+              <option>48 tháng</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>Loại khoản vay</label>
+            <select id="type">
+              <option>Vay tín chấp</option>
+              <option>Vay thế chấp</option>
+              <option>Vay kinh doanh</option>
+              <option>Vay mua ô tô</option>
+              <option>Vay mua nhà</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>Mô tả nhu cầu</label>
+            <textarea id="note" placeholder="Ví dụ: cần vay mua nhà, trả góp 20 năm, mong muốn lãi suất tốt…"></textarea>
+          </div>
+
+          <button type="submit" class="btn-book" style="margin-top:16px;">Gửi yêu cầu</button>
+        </form>
+
+        <!-- Banner PVcomBank -->
+        <div class="pv-box">
+          <h2>PVcomBank – Uy tín · Minh bạch · Đồng hành dài lâu</h2>
+          <div class="feature-grid">
+            <div class="feature-item">Duyệt hồ sơ nhanh trong ngày, hỗ trợ xử lý gấp</div>
+            <div class="feature-item">Lãi suất cạnh tranh, nhiều kỳ hạn linh hoạt</div>
+            <div class="feature-item">Hạn mức cao, phù hợp nhu cầu mua nhà, mua xe, kinh doanh</div>
+            <div class="feature-item">Được tư vấn trực tiếp bởi chuyên viên giàu kinh nghiệm</div>
+          </div>
+        </div>
+
+        <!-- Chuyên viên tư vấn -->
+        <div class="advisor-box" id="advisor">
+          <h3>Chuyên viên phụ trách hồ sơ của bạn</h3>
+          <p><strong>Đoàn Thị Yến Nhi – Ngân hàng PVcomBank</strong></p>
+          <p>Chuyên viên tín dụng với hơn 6 năm kinh nghiệm trong lĩnh vực cho vay cá nhân & doanh nghiệp.</p>
+          <p>Số điện thoại hỗ trợ trực tiếp: <strong>0931.776.707</strong></p>
+          <button onclick="location.href='tel:0931776707'">📞 Gọi ngay cho Yến Nhi</button>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer style="text-align:center;padding:40px;background:#0f1014;color:white;">
-  <p>© 2025 – Hỗ trợ vay vốn PVcomBank. Bảo mật – Minh bạch – Uy tín.</p>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    © 2025 – Landing page tư vấn vay vốn PVcomBank. Thông tin chỉ phục vụ cho mục đích tư vấn, bảo mật tuyệt đối.
+  </footer>
 
-<!-- JS EXPORT EXCEL -->
-<script>
-document.getElementById("loanForm").addEventListener("submit", function(e){
-  e.preventDefault();
+  <!-- Nút gọi nhanh -->
+  <a href="tel:0931776707" class="call-now">📞 Gọi ngay 0931.776.707</a>
 
-  const data = [{
-    "Họ tên": document.getElementById("name").value,
-    "SĐT": document.getElementById("phone").value,
-    "Email": document.getElementById("email").value,
-    "Số tiền vay": document.getElementById("amount").value,
-    "Thời hạn": document.getElementById("duration").value,
-    "Loại vay": document.getElementById("type").value,
-    "Ghi chú": document.getElementById("note").value,
-    "Ngày gửi": new Date().toLocaleString()
-  }];
+  <!-- JS: header scroll + submit form (Excel + email) -->
+  <script>
+    // Header đổi màu khi cuộn
+    const header = document.getElementById("luxHeader");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    });
 
-  const wb = XLSX.utils.book_new();
-  const ws = XLSX.utils.json_to_sheet(data);
-  XLSX.utils.book_append_sheet(wb, ws, "ThongTinVay");
+    // ==== CẤU HÌNH WEBHOOK APPS SCRIPT (DÁN LINK VÀO ĐÂY) ====
+    const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyyP4jq4ovIqZJHrQsKi4IFU27D8zTbGZPfI7UnCTskbyW0hil7qx8U9TSEE0yyB3kx/exec";
 
-  XLSX.writeFile(wb, "yeu_cau_vay_von.xlsx");
+    document.getElementById("loanForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  alert("✔ Hệ thống đã lưu yêu cầu! Chuyên viên sẽ liên hệ trong ít phút.");
-  this.reset();
-});
-</script>
+      const payload = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        amount: document.getElementById("amount").value,
+        duration: document.getElementById("duration").value,
+        type: document.getElementById("type").value,
+        note: document.getElementById("note").value,
+        time: new Date().toLocaleString("vi-VN")
+      };
 
+      // 1) Gửi sang Apps Script để gửi email
+      if (WEBHOOK_URL && WEBHOOK_URL.startsWith("http")) {
+        fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          mode: "no-cors",
+          body: JSON.stringify(payload)
+        });
+      }
+
+      // 2) Xuất Excel tải về máy
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.json_to_sheet([{
+        "Họ tên": payload.name,
+        "SĐT": payload.phone,
+        "Email": payload.email,
+        "Số tiền vay": payload.amount,
+        "Thời hạn": payload.duration,
+        "Loại vay": payload.type,
+        "Ghi chú": payload.note,
+        "Ngày gửi": payload.time
+      }]);
+      XLSX.utils.book_append_sheet(wb, ws, "ThongTinVay");
+      XLSX.writeFile(wb, "yeu_cau_vay_von.xlsx");
+
+      alert("✔ Hệ thống đã ghi nhận yêu cầu. Chuyên viên sẽ liên hệ trong ít phút.");
+      this.reset();
+    });
+  </script>
 </body>
 </html>
