@@ -29,7 +29,7 @@
       color: #111;
     }
 
-    /* ================= HEADER ================= */
+    /* HEADER */
     .lux-header {
       position: fixed;
       top: 0; left: 0;
@@ -66,7 +66,7 @@
       font-weight: 500;
     }
 
-    /* ================= HERO ================= */
+    /* HERO */
     .hero {
       margin-top: 60px;
       background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
@@ -90,7 +90,12 @@
       opacity: 0.9;
     }
 
-    /* ========== FADE ANIMATION ========== */
+    /* VIDEO */
+    #video {
+      padding: 30px 16px;
+    }
+
+    /* EFFECTS */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -101,103 +106,7 @@
       transform: translateY(0);
     }
 
-    .fade-slide {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity .9s ease, transform .9s ease;
-    }
-    .fade-slide.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .fade-zoom {
-      opacity: 0;
-      transform: scale(.95);
-      transition: opacity .8s ease, transform .8s ease;
-    }
-    .fade-zoom.show {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* ========== STAGGER LINES ========== */
-    .stagger > * {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .stagger.show > * {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .stagger.show > *:nth-child(1){transition-delay:.1s;}
-    .stagger.show > *:nth-child(2){transition-delay:.2s;}
-    .stagger.show > *:nth-child(3){transition-delay:.3s;}
-    .stagger.show > *:nth-child(4){transition-delay:.4s;}
-    .stagger.show > *:nth-child(5){transition-delay:.5s;}
-
-    /* ========== PREMIUM GLOW ========== */
-    .glow {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .glow::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -120%;
-      width: 80%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
-      transform: skewX(-20deg);
-      animation: shine 2.8s infinite ease-in-out;
-    }
-
-    @keyframes shine {
-      0% { left: -120%; }
-      70% { left: 130%; }
-      100% { left: 130%; }
-    }
-
-    /* HERO BENEFITS */
-    .hero-benefits {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      font-size: 13px;
-    }
-
-    .hero-benefits div {
-      background: rgba(0,0,0,0.45);
-      padding: 9px 12px;
-      border-radius: 10px;
-    }
-
-    .hero-card {
-      margin-top: 22px;
-      background: rgba(0,0,0,0.55);
-      padding: 18px;
-      border-radius: 14px;
-      font-size: 13px;
-    }
-
-    .btn-main {
-      margin-top: 16px;
-      background: var(--pv-yellow);
-      padding: 12px 20px;
-      border-radius: 40px;
-      border: none;
-      font-weight: 700;
-      font-size: 14px;
-      color: #111;
-      width: 100%;
-    }
-
-    /* ================= FORM ================= */
+    /* FORM */
     #booking { padding: 30px 16px; }
 
     .booking-wrapper {
@@ -232,7 +141,6 @@
       font-size: 14px;
     }
 
-    /* BUTTON BOOK – WITH LOADING */
     .btn-book {
       background: var(--pv-blue);
       color: white;
@@ -245,89 +153,6 @@
       margin-top: 6px;
     }
 
-    .btn-book.loading {
-      opacity: .7;
-      pointer-events: none;
-      position: relative;
-    }
-
-    .btn-book.loading::after {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border: 3px solid white;
-      border-top-color: transparent;
-      border-radius: 50%;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      animation: spin .8s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: translateY(-50%) rotate(0deg); }
-      to { transform: translateY(-50%) rotate(360deg); }
-    }
-
-    .btn-book.success {
-      background: #28d17c !important;
-      animation: pulse .5s ease-out;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* ================= PV-BOX ================= */
-    .pv-box {
-      margin-top: 30px;
-      background: linear-gradient(90deg, var(--pv-yellow), var(--pv-blue));
-      color: white;
-      padding: 24px 18px;
-      border-radius: 14px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .feature-grid {
-      margin-top: 16px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .feature-item {
-      background: white;
-      color: #111;
-      padding: 12px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* ================= ADVISOR ================= */
-    .advisor-box {
-      background: var(--dark-soft);
-      padding: 22px;
-      border-radius: 14px;
-      color: #ffc;
-      margin-top: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .advisor-box button {
-      margin-top: 12px;
-      padding: 10px 20px;
-      background: var(--pv-yellow);
-      border-radius: 40px;
-      border: none;
-      font-weight: 700;
-    }
-
-    /* ================= FOOTER ================= */
     footer {
       text-align: center;
       padding: 28px 10px;
@@ -335,62 +160,6 @@
       color: white;
       font-size: 13px;
       margin-top: 40px;
-    }
-
-    /* Floating button */
-    .call-now {
-      position: fixed;
-      bottom: 18px;
-      right: 18px;
-      background: var(--pv-yellow);
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      color: #111;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-      text-decoration: none;
-      font-size: 14px;
-      z-index: 99999;
-    }
-
-    /* ===== POPUP ===== */
-    .thank-popup {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.55);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999999;
-    }
-
-    .thank-box {
-      background: white;
-      padding: 26px;
-      border-radius: 18px;
-      text-align: center;
-      width: 88%;
-      max-width: 360px;
-      animation: popupFade .4s ease;
-    }
-
-    .thank-box button {
-      margin-top: 16px;
-      background: var(--pv-yellow);
-      border: none;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-weight: 700;
-    }
-
-    @keyframes popupFade {
-      from { transform: scale(.85); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    @media (min-width: 768px) {
-      .hero-benefits { grid-template-columns: repeat(2,1fr); }
-      .feature-grid { grid-template-columns: repeat(2,1fr); }
     }
 
   </style>
@@ -403,36 +172,46 @@
     <div class="lux-header-inner">
       <div class="lux-logo-text">PVcomBank – Hỗ trợ vay vốn</div>
       <nav class="lux-nav">
+        <a href="#video">Video</a>
         <a href="#booking">Đăng ký vay</a>
-        <a href="#advisor">Liên hệ</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero fade-in">
-    <h1 class="fade-in">Tư vấn vay vốn nhanh – lãi suất cạnh tranh – bảo mật tuyệt đối</h1>
-    <p class="fade-in">
-      Tối ưu dòng tiền cho cá nhân & doanh nghiệp với các gói vay mua nhà, mua ô tô,
-      kinh doanh, tiêu dùng… linh hoạt theo nhu cầu từng khách hàng.
+    <h1>Tư vấn vay vốn nhanh – lãi suất cạnh tranh – bảo mật tuyệt đối</h1>
+    <p>
+      Tối ưu dòng tiền cho cá nhân & doanh nghiệp với gói vay mua nhà, ô tô,
+      kinh doanh, tiêu dùng… linh hoạt theo nhu cầu.
     </p>
+  </section>
 
-    <div class="hero-benefits stagger">
-      <div>✔ Phê duyệt nhanh</div>
-      <div>✔ Lãi suất từ 0.6%/tháng</div>
-      <div>✔ Hạn mức tới 5 tỷ</div>
-      <div>✔ Hỗ trợ hồ sơ 1:1</div>
-    </div>
+  <!-- ⭐ VIDEO SECTION -->
+  <section id="video" class="fade-in">
+    <h2 style="
+      text-align:center;
+      font-family:'Playfair Display',serif;
+      font-size:22px;
+      margin-bottom:16px;
+    ">Video giới thiệu</h2>
 
-    <button class="btn-main glow fade-in" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-      Đăng ký tư vấn miễn phí
-    </button>
+    <div style="
+        background:#000;
+        border-radius:16px;
+        overflow:hidden;
+        box-shadow:0 6px 18px rgba(0,0,0,0.25);
+      ">
 
-    <div class="hero-card fade-slide">
-      <h3 style="color:#ffc423;margin:0 0 10px;">Hồ sơ cần chuẩn bị</h3>
-      <div>- CMND/CCCD, hộ khẩu/KT3</div>
-      <div>- Sao kê thu nhập / bảng lương / HĐLĐ</div>
-      <div>- Giấy tờ tài sản bảo đảm (nếu vay thế chấp)</div>
+      <video controls style="
+          width:100%;
+          height:auto;
+          display:block;
+        ">
+        <source src="/video.mp4" type="video/mp4">
+        Trình duyệt không hỗ trợ phát video.
+      </video>
+
     </div>
   </section>
 
@@ -484,30 +263,8 @@
           <textarea id="note"></textarea>
         </div>
 
-        <button type="submit" class="btn-book glow fade-in">Gửi yêu cầu</button>
+        <button type="submit" class="btn-book fade-in">Gửi yêu cầu</button>
       </form>
-
-      <!-- PV BOX -->
-      <div class="pv-box fade-zoom">
-        <h3 style="margin:0 0 10px;">PVcomBank – Uy tín · Minh bạch · Tận tâm</h3>
-
-        <div class="feature-grid stagger">
-          <div class="feature-item glow">Duyệt hồ sơ nhanh</div>
-          <div class="feature-item glow">Lãi suất cạnh tranh</div>
-          <div class="feature-item glow">Hạn mức cao</div>
-          <div class="feature-item glow">Chuyên viên hỗ trợ 1:1</div>
-        </div>
-      </div>
-
-      <!-- ADVISOR -->
-      <div class="advisor-box fade-slide" id="advisor">
-        <h3>Chuyên viên phụ trách hồ sơ</h3>
-        <p><strong>Đoàn Thị Yến Nhi – PVcomBank</strong></p>
-        <p>Hơn 6 năm kinh nghiệm tư vấn vay vốn cá nhân và doanh nghiệp.</p>
-        <p>Hotline: <strong>0931.776.707</strong></p>
-
-        <button onclick="location.href='tel:0931776707'">📞 Gọi ngay</button>
-      </div>
 
     </div>
   </section>
@@ -516,85 +273,20 @@
     © 2025 – PVcomBank Lending Page
   </footer>
 
-  <a class="call-now glow" href="tel:0931776707">📞 0931.776.707</a>
-
-  <!-- POPUP -->
-  <div id="thankPopup" class="thank-popup">
-    <div class="thank-box fade-zoom">
-      <h3>🎉 Gửi yêu cầu thành công!</h3>
-      <p>Cảm ơn Quý khách đã tin tưởng PVcomBank.</p>
-      <p>Chuyên viên <b>Đoàn Thị Yến Nhi</b> sẽ liên hệ trong vài phút.</p>
-      <button onclick="closeThankPopup()">Đóng</button>
-    </div>
-  </div>
-
   <!-- SCRIPT -->
   <script>
+    // Fade observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+    }, { threshold: 0.2 });
+    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+    // Sticky header
     const header = document.getElementById("luxHeader");
     window.addEventListener("scroll", () => {
       header.classList.toggle("scrolled", window.scrollY > 10);
     });
 
-    // Fade-in observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add("show");
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll(".fade-in, .fade-slide, .fade-zoom, .stagger")
-      .forEach(el => observer.observe(el));
-
-    // Popup
-    function openThankPopup() {
-      document.getElementById("thankPopup").style.display = "flex";
-    }
-    function closeThankPopup() {
-      document.getElementById("thankPopup").style.display = "none";
-    }
-
-    // Webhook gửi email
-    const WEBHOOK_URL =
-      "https://script.google.com/macros/s/AKfycbzV2wGJupEP3h6yAH9JC4_X95Tzh_rexkh6TCLIjXle16HiQH1FegHVbaS-YsUJNXiM/exec";
-
-    const btn = document.querySelector(".btn-book");
-
-    document.getElementById("loanForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      btn.classList.add("loading");
-      btn.textContent = "Đang gửi...";
-
-      const payload = {
-        name: name.value,
-        phone: phone.value,
-        email: email.value,
-        amount: amount.value,
-        duration: duration.value,
-        type: type.value,
-        note: note.value,
-        time: new Date().toLocaleString("vi-VN")
-      };
-
-      fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        mode: "no-cors",
-        body: JSON.stringify(payload)
-      });
-
-      setTimeout(() => {
-        btn.classList.remove("loading");
-        btn.classList.add("success");
-        btn.textContent = "Đã gửi thành công!";
-
-        openThankPopup();
-
-        setTimeout(() => btn.classList.remove("success"), 1600);
-      }, 1300);
-
-      this.reset();
-    });
   </script>
 
 </body>
